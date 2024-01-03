@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "start": "yarn dev --prefix ../backend/",
+    "build": "cd backend && yarn",
     "frontend": "yarn dev --prefix ../frontend/",
     "backend": "yarn dev --prefix ../backend/",
     "clear": "cd frontend && rm -rf .next && rm -rf cache",
@@ -10,6 +12,9 @@
     "seed": "cd backend && yarn strapi import -f ../seed-data.tar.gz",
     "export": "cd backend && yarn strapi export --no-encrypt -f ../seed-data",
     "repo:upstream": "git fetch upstream && git merge upstream/main"
+  },
+  "engines": {
+    "node": "18.17.0"
   },
   "dependencies": {
     "concurrently": "^8.2.2"
