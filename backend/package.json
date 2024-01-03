@@ -5,7 +5,7 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start": "STRAPI_URL=https://thestatevision-c7215cb91521.herokuapp.com NODE_ENV=production strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
