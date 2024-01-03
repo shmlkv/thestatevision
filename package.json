@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "cd backend && yarn start",
+    "start": "cd backend && yarn strapi",
     "build": "cd backend && yarn",
     "frontend": "yarn dev --prefix ../frontend/",
     "backend": "yarn dev --prefix ../backend/",
