@@ -17,6 +17,7 @@
     "node": "18.17.0"
   },
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "strapi-plugin-import-export-entries": "^1.23.1"
   }
 }
