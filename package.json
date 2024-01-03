@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "cd backend && yarn start",
-    "build": "cd backend && yarn build",
+    "build": "cd backend && yarn && yarn build",
     "frontend": "yarn dev --prefix ../frontend/",
     "backend": "yarn dev --prefix ../backend/",
     "clear": "cd frontend && rm -rf .next && rm -rf cache",
