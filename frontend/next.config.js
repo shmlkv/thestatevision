@@ -13,10 +13,13 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.pexels.com",
       },
-
       {
         protocol: "https",
         hostname: "thestatevision-c7215cb91521.herokuapp.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
       },
     ],
   },
