@@ -37,6 +37,7 @@ export default function ArticleSelect({
     category: string;
   };
 }) {
+  console.log({ categories: JSON.stringify(categories, null, 2) });
   return (
     <div className="p-4 rounded-lg dark:bg-gray-900 min-h-[365px] relative">
       <h4 className="text-xl font-semibold">Сategories</h4>
@@ -53,12 +54,12 @@ export default function ArticleSelect({
                   params.category
                 )}
               >
-                #{category.attributes.name}
+                {category.attributes.name}
               </Link>
             );
           })}
           <Link href={"/blog"} className={selectedFilter("", "filter")}>
-            #all
+            All
           </Link>
         </div>
 
