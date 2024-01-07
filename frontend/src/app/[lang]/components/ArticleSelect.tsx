@@ -37,13 +37,12 @@ export default function ArticleSelect({
     category: string;
   };
 }) {
-
   return (
     <div className="p-4 rounded-lg dark:bg-gray-900 min-h-[365px] relative">
       <h4 className="text-xl font-semibold">Browse By Category</h4>
 
       <div>
-        <div className="flex flex-wrap py-6 space-x-2 dark:border-gray-400">
+        <div className="flex flex-wrap py-6 space-x-2 space-y-2 dark:border-gray-400">
           {categories.map((category: Category) => {
             if (category.attributes.articles.data.length === 0) return null;
             return (
