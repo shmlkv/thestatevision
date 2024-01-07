@@ -1,10 +1,10 @@
 "use client";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Logo from "./Logo";
+import { usePathname } from "next/navigation";
+import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 import { CgWebsite } from "react-icons/cg";
 import { FaDiscord } from "react-icons/fa";
-import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
+import Logo from "./Logo";
 
 interface FooterLink {
   id: number;
@@ -81,7 +81,6 @@ export default function Footer({
   legalLinks: Array<FooterLink>;
   socialLinks: Array<FooterLink>;
 }) {
-
   return (
     <footer className="py-6 dark:bg-black dark:text-gray-50">
       <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
@@ -93,7 +92,7 @@ export default function Footer({
           </div>
 
           <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Categories</p>
+            <p className="pb-1 text-lg text-left font-bold">Categories</p>
             <ul>
               {categoryLinks.map((link: CategoryLink) => (
                 <CategoryLink key={link.id} {...link} />
@@ -102,7 +101,7 @@ export default function Footer({
           </div>
 
           <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Menu</p>
+            <p className="pb-1 text-lg text-left font-bold">Menu</p>
             <ul>
               {menuLinks.map((link: FooterLink) => (
                 <FooterLink key={link.id} {...link} />
