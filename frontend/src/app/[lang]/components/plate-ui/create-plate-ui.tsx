@@ -50,34 +50,31 @@ import {
   ELEMENT_TR,
 } from "@udecode/plate-table";
 
-import { BlockquoteElement } from "@/registry/default/plate-ui/blockquote-element";
-import { CodeBlockElement } from "@/registry/default/plate-ui/code-block-element";
-import { CodeLeaf } from "@/registry/default/plate-ui/code-leaf";
-import { CodeLineElement } from "@/registry/default/plate-ui/code-line-element";
-import { CodeSyntaxLeaf } from "@/registry/default/plate-ui/code-syntax-leaf";
-import { CommentLeaf } from "@/registry/default/plate-ui/comment-leaf";
-import { ExcalidrawElement } from "@/registry/default/plate-ui/excalidraw-element";
-import { HeadingElement } from "@/registry/default/plate-ui/heading-element";
-import { HighlightLeaf } from "@/registry/default/plate-ui/highlight-leaf";
-import { HrElement } from "@/registry/default/plate-ui/hr-element";
-import { ImageElement } from "@/registry/default/plate-ui/image-element";
-import { KbdLeaf } from "@/registry/default/plate-ui/kbd-leaf";
-import { LinkElement } from "@/registry/default/plate-ui/link-element";
-import { ListElement } from "@/registry/default/plate-ui/list-element";
-import { MediaEmbedElement } from "@/registry/default/plate-ui/media-embed-element";
-import { MentionElement } from "@/registry/default/plate-ui/mention-element";
-import { MentionInputElement } from "@/registry/default/plate-ui/mention-input-element";
-import { ParagraphElement } from "@/registry/default/plate-ui/paragraph-element";
-import { withPlaceholders } from "@/registry/default/plate-ui/placeholder";
-import { SearchHighlightLeaf } from "@/registry/default/plate-ui/search-highlight-leaf";
-import {
-  TableCellElement,
-  TableCellHeaderElement,
-} from "@/registry/default/plate-ui/table-cell-element";
-import { TableElement } from "@/registry/default/plate-ui/table-element";
-import { TableRowElement } from "@/registry/default/plate-ui/table-row-element";
-import { TodoListElement } from "@/registry/default/plate-ui/todo-list-element";
-import { withDraggables } from "@/registry/default/plate-ui/with-draggables";
+import { BlockquoteElement } from "./blockquote-element";
+import { CodeBlockElement } from "./code-block-element";
+import { CodeLeaf } from "./code-leaf";
+import { CodeLineElement } from "./code-line-element";
+import { CodeSyntaxLeaf } from "./code-syntax-leaf";
+import { CommentLeaf } from "./comment-leaf";
+import { ExcalidrawElement } from "./excalidraw-element";
+import { HeadingElement } from "./heading-element";
+import { HighlightLeaf } from "./highlight-leaf";
+import { HrElement } from "./hr-element";
+import { ImageElement } from "./image-element";
+import { KbdLeaf } from "./kbd-leaf";
+import { LinkElement } from "./link-element";
+import { ListElement } from "./list-element";
+import { MediaEmbedElement } from "./media-embed-element";
+import { MentionElement } from "./mention-element";
+import { MentionInputElement } from "./mention-input-element";
+import { ParagraphElement } from "./paragraph-element";
+import { withPlaceholders } from "./placeholder";
+import { SearchHighlightLeaf } from "./search-highlight-leaf";
+import { TableCellElement, TableCellHeaderElement } from "./table-cell-element";
+import { TableElement } from "./table-element";
+import { TableRowElement } from "./table-row-element";
+import { TodoListElement } from "./todo-list-element";
+import { withDraggables } from "./with-draggables";
 
 export const createPlateUI = (
   overrideByKey?: Partial<Record<string, PlatePluginComponent>>,

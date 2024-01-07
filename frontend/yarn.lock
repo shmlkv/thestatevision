@@ -1028,7 +1028,7 @@
     "@excalidraw/excalidraw" "0.12.0"
     "@udecode/plate-common" "29.1.0"
 
-"@udecode/plate-find-replace@29.1.0":
+"@udecode/plate-find-replace@29.1.0", "@udecode/plate-find-replace@^29.1.0":
   version "29.1.0"
   resolved "https://registry.yarnpkg.com/@udecode/plate-find-replace/-/plate-find-replace-29.1.0.tgz#a64473a5bba3d08ef1a66471fc1a516615dd9c07"
   integrity sha512-c96y0L3tZtB7OO2f57gXms76TcjHyblSEWD3LvOh3PzaKfJmUGriNr5BowRTYvd43t2UDBryiNVMbA++ZhUNww==
