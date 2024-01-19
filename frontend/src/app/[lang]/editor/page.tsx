@@ -1,10 +1,9 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
-import { fetchAPI } from "../utils/fetch-api";
 
 import { PlateEditor } from "../components/Editor";
-import Loader from "../components/Loader";
+import LangRedirect from "../components/LangRedirect";
 import PageHeader from "../components/PageHeader";
+import { getPageBySlug } from "../utils/get-page-by-slug";
 // import { Editor } from "../components/plate-ui/editor";
 
 interface Meta {
@@ -15,62 +14,24 @@ interface Meta {
   };
 }
 
-export default function Profile() {
-  const [meta, setMeta] = useState<Meta | undefined>();
-  const [data, setData] = useState<any>([]);
-  const [isLoading, setLoading] = useState(true);
+export default async function Profile({
+  params,
+}: {
+  params: { lang: string };
+}) {
+  const page = await getPageBySlug("editor", params.lang);
+  if (page.error && page.error.status == 401)
+    throw new Error(
+      "Missing or invalid credentials. Have you created an access token using the Strapi admin panel? http://localhost:1337/admin/"
+    );
 
-  const fetchData = useCallback(async (start: number, limit: number) => {
-    setLoading(true);
-    try {
-      const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-      const path = `/articles`;
-      const urlParamsObject = {
-        sort: { createdAt: "desc" },
-        populate: {
-          cover: { fields: ["url"] },
-          category: { populate: "*" },
-          authorsBio: {
-            populate: "*",
-          },
-        },
-        pagination: {
-          start: start,
-          limit: limit,
-        },
-      };
-      const options = { headers: { Authorization: `Bearer ${token}` } };
-      const responseData = await fetchAPI(path, urlParamsObject, options);
-
-      if (start === 0) {
-        setData(responseData.data);
-      } else {
-        setData((prevData: any[]) => [...prevData, ...responseData.data]);
-      }
-
-      setMeta(responseData.meta);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  function loadMorePosts(): void {
-    const nextPosts = meta!.pagination.start + meta!.pagination.limit;
-    fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
-  }
-
-  useEffect(() => {
-    fetchData(0, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
-  }, [fetchData]);
-
-  if (isLoading) return <Loader />;
+  if (page.data.length == 0 && params.lang !== "en") return <LangRedirect />;
+  if (page.data.length === 0) return null;
 
   return (
     <div>
       <PageHeader heading="Editor" text="" />
-      <div className="container mx-auto">
+      <div className="max-w-[1200px] m-auto">
         <PlateEditor />
       </div>
     </div>

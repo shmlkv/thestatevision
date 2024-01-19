@@ -890,7 +890,7 @@
   dependencies:
     "@udecode/react-utils" "29.0.1"
 
-"@udecode/plate-alignment@29.1.0":
+"@udecode/plate-alignment@29.1.0", "@udecode/plate-alignment@^29.1.0":
   version "29.1.0"
   resolved "https://registry.yarnpkg.com/@udecode/plate-alignment/-/plate-alignment-29.1.0.tgz#2e796ebfcc4d7307db162529b4895e48ce480ba3"
   integrity sha512-JJNzpjIFxwQudG5iMiflnrmW4q+StEBaKadr3NAa5wxhT5B8kubL2qdC4V2kFYeb76ns/+IEwAM76/9unRO8Yg==
@@ -1073,7 +1073,7 @@
   dependencies:
     "@udecode/plate-common" "29.1.0"
 
-"@udecode/plate-indent-list@29.1.0":
+"@udecode/plate-indent-list@29.1.0", "@udecode/plate-indent-list@^29.1.0":
   version "29.1.0"
   resolved "https://registry.yarnpkg.com/@udecode/plate-indent-list/-/plate-indent-list-29.1.0.tgz#3c99f748cbc29bee17f0856f50faca9cbced08ed"
   integrity sha512-H0YGgHja5UXyVCzl9FWxbq/M2NKCfeoPrzgkTOXXFGsykWgG3msWEdmYts5UwDTPjkHoKX4Tb4ErvJIXxILnpw==
@@ -1083,7 +1083,7 @@
     "@udecode/plate-list" "29.1.0"
     clsx "^1.2.1"
 
-"@udecode/plate-indent@29.1.0":
+"@udecode/plate-indent@29.1.0", "@udecode/plate-indent@^29.1.0":
   version "29.1.0"
   resolved "https://registry.yarnpkg.com/@udecode/plate-indent/-/plate-indent-29.1.0.tgz#1c49ada363e1a20afe0f11b498a1083f869fcc80"
   integrity sha512-HE/NQT203+zRKsGC2C581c56Pgva2IKzqvSdKUwv/OMkk/Mt+ybBqHygpmN5/2oXtUon3qTmYFW6ytuMupMYZg==
@@ -1097,7 +1097,7 @@
   dependencies:
     "@udecode/plate-common" "29.1.0"
 
-"@udecode/plate-line-height@29.1.0":
+"@udecode/plate-line-height@29.1.0", "@udecode/plate-line-height@^29.1.0":
   version "29.1.0"
   resolved "https://registry.yarnpkg.com/@udecode/plate-line-height/-/plate-line-height-29.1.0.tgz#78a22c4911b2e6a5810d8ad318c89d92a122fb73"
   integrity sha512-9QOmOX2a04G+8oxWKQTnZeJts+YJzbQqzt8JDpLgWynXpvw6NeXGREYyh1caYi8/eSca8jaAQcUMpiljgjHy0Q==

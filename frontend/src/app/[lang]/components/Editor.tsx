@@ -368,8 +368,8 @@ export function PlateEditor() {
   );
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <TooltipProvider>
+    <TooltipProvider>
+      <DndProvider backend={HTML5Backend}>
         <CommentsProvider users={{}} myUserId="1">
           <Plate plugins={plugins} initialValue={initialValue}>
             <FixedToolbar>
@@ -385,7 +385,7 @@ export function PlateEditor() {
             <CommentsPopover />
           </Plate>
         </CommentsProvider>
-      </TooltipProvider>
-    </DndProvider>
+      </DndProvider>
+    </TooltipProvider>
   );
 }

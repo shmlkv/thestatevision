@@ -10,7 +10,7 @@ import type { VariantProps } from "class-variance-authority";
 const editorVariants = cva(
   cn(
     "relative overflow-x-auto whitespace-pre-wrap break-words",
-    "min-h-[80px] w-full rounded-md bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none",
+    "min-h-[80px] w-full rounded-md bg-background px-6 py-4 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none",
     "[&_[data-slate-placeholder]]:text-muted-foreground [&_[data-slate-placeholder]]:!opacity-100",
     "[&_[data-slate-placeholder]]:top-[auto_!important]",
     "[&_strong]:font-bold"
@@ -18,7 +18,7 @@ const editorVariants = cva(
   {
     variants: {
       variant: {
-        outline: "border border-input",
+        // outline: "border border-input",
         ghost: "",
       },
       focused: {
@@ -37,9 +37,9 @@ const editorVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "outline",
+      variant: "ghost",
       focusRing: true,
-      size: "sm",
+      size: "md",
     },
   }
 );
