@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getStrapiMedia, formatDate } from "../utils/api-helpers";
+import { formatDate, getStrapiMedia } from "../utils/api-helpers";
 
 interface Article {
   id: number;
@@ -67,7 +67,7 @@ export default function PostList({
 
           return (
             <Link
-              href={`/blog/${category?.slug}/${article.attributes.slug}`}
+              href={`/articles/${category?.slug}/${article.attributes.slug}`}
               key={article.id}
               className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900 lg:w-[300px] xl:min-w-[375px] rounded-2xl overflow-hidden shadow-lg"
             >

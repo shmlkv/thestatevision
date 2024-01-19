@@ -1,6 +1,7 @@
 "use client";
 import { getPageBySlug } from "@/app/[lang]/utils/get-page-by-slug";
-import Profile from "./blog/page";
+
+import Profile from "./articles/page";
 import LangRedirect from "./components/LangRedirect";
 import { sectionRenderer } from "./utils/section-renderer";
 
