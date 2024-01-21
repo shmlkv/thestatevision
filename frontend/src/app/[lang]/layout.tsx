@@ -89,20 +89,30 @@ export default async function RootLayout({
   );
 
   return (
-    <html lang={params.lang} className={`${font.className}`}>
+    <html lang={params.lang} className={`  ${font.className}`}>
       <body>
+        <div id="stars-container" className="relative max-w-screen-2xl mx-auto">
+          <script type="module" src="./hoisted.ae1305ea.js"></script>
+          <div className="absolute top-0 left-0 right-0 h-[600px] ">
+            <canvas
+              className="js-stars absolute top-0 left-0 w-full transition duration-1000 origin-bottom opacity-0 data-[ready]:opacity-100 scale-[0.98] data-[ready]:scale-100 h-40 sm:h-96"
+              width="3072"
+              height="768"
+              data-ready="true"
+            ></canvas>
+            <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-l from-transparent via-transparent via-50% dark:to-slate-950"></div>
+            <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-transparent via-50% dark:to-slate-950"></div>
+          </div>
+        </div>{" "}
         <Navbar
           links={navbar.links}
           logoUrl={navbarLogoUrl}
           logoText={navbar.navbarLogo.logoText}
         />
-
-        <main className="dark:bg-black dark:text-gray-100 min-h-screen">
+        <main className=" z-10 relative dark:text-gray-100 min-h-screen">
           {children}
         </main>
-
         <Banner data={notificationBanner} />
-
         <Footer
           logoUrl={footerLogoUrl}
           logoText={footer.footerLogo.logoText}

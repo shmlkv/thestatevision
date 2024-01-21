@@ -1,10 +1,10 @@
 "use client";
-import Logo from "./Logo";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Logo from "./Logo";
 
 interface NavLink {
   id: number;
@@ -68,11 +68,13 @@ export default function Navbar({
     setMobileMenuOpen(false);
   };
   return (
-    <div className="p-4 dark:bg-black dark:text-gray-100">
+    <div className="p-4 z-10 relative  dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
-        <Logo src={logoUrl}>
-          {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
-        </Logo>
+        <div className="relative">
+          <Logo src={logoUrl}>
+            {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
+          </Logo>
+        </div>
 
         <div className="items-center flex-shrink-0 hidden lg:flex">
           <ul className="items-stretch hidden space-x-3 lg:flex">
