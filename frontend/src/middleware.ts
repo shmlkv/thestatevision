@@ -28,6 +28,7 @@ export function middleware(request: NextRequest) {
       "/manifest.json",
       "/favicon.ico",
       "/sitemap.xml",
+      "/robots.txt",
       // Your other files in `public`
     ].includes(pathname)
   )
