@@ -34,8 +34,8 @@ async function fetchSideMenuData(filter: string, slug: string) {
       options
     );
     const currentAuthor = authors.data.find((a: any) =>
-      a.attributes.articles.data.find(
-        (art: any) => art.attributes.slug === slug
+      a?.attributes?.articles?.data.find(
+        (art: any) => art?.attributes?.slug === slug
       )
     );
 
