@@ -21,14 +21,15 @@ interface Article {
 
 function selectedFilter(current: string, selected: string) {
   return current === selected
-    ? "px-3 py-1 rounded-lg hover:underline dark:bg-violet-700 dark:text-gray-100"
-    : "px-3 py-1 rounded-lg hover:underline dark:bg-violet-400 dark:text-gray-900";
+    ? "px-3 py-1 mr-2 rounded-lg hover:underline dark:bg-violet-700 dark:text-gray-100"
+    : "px-3 py-1 mr-2 rounded-lg hover:underline dark:bg-violet-400 dark:text-gray-900";
 }
 
 export default function ArticleSelect({
   categories,
   articles,
   params,
+  author,
 }: {
   categories: Category[];
   articles: Article[];
@@ -36,14 +37,14 @@ export default function ArticleSelect({
     slug: string;
     category: string;
   };
+  author: any;
 }) {
-  console.log({ categories: JSON.stringify(categories, null, 2) });
   return (
     <div className="p-4 rounded-lg dark:bg-gray-900 min-h-[365px] relative">
       <h4 className="text-xl font-semibold">Сategories</h4>
 
       <div>
-        <div className="flex flex-wrap items-end py-4 space-x-2 space-y-2 dark:border-gray-400 ">
+        <div className="flex flex-wrap items-end py-2 space-y-2 dark:border-gray-400 ">
           {categories.map((category: Category) => {
             if (category.attributes.articles.data.length === 0) return null;
             return (
@@ -89,6 +90,21 @@ export default function ArticleSelect({
           ""
         )}
       </div>
+      <h4 className="text-xl font-semibold">Author</h4>
+
+      {author && (
+        <div className="flex items-center space-x-2 py-2">
+          <img
+            src={author.avatar.data.attributes.url}
+            alt={author.name}
+            className="w-12 h-12 rounded-full"
+          />
+          <div>
+            <h4 className="text-lg font-semibold">{author.name}</h4>
+            <p className="text-sm">{author.bio}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -100,8 +100,8 @@ export default async function RootLayout({
               height="768"
               data-ready="true"
             ></canvas>
-            <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-l from-transparent via-transparent via-50% dark:to-slate-950"></div>
-            <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-transparent via-50% dark:to-slate-950"></div>
+            <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-l from-transparent via-transparent via-50% dark:to-black"></div>
+            <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-transparent via-50% dark:to-black"></div>
           </div>
         </div>{" "}
         <Navbar

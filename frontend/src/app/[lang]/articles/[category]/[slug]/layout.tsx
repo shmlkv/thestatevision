@@ -1,7 +1,7 @@
 import ArticleSelect from "@/app/[lang]/components/ArticleSelect";
 import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
 
-async function fetchSideMenuData(filter: string) {
+async function fetchSideMenuData(filter: string, slug: string) {
   try {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
     const options = { headers: { Authorization: `Bearer ${token}` } };
@@ -26,9 +26,23 @@ async function fetchSideMenuData(filter: string) {
       options
     );
 
+    const authors = await fetchAPI(
+      "/authors",
+      {
+        populate: "*",
+      },
+      options
+    );
+    const currentAuthor = authors.data.find((a: any) =>
+      a.attributes.articles.data.find(
+        (art: any) => art.attributes.slug === slug
+      )
+    );
+
     return {
       articles: articlesResponse.data,
       categories: categoriesResponse.data,
+      author: currentAuthor.attributes,
     };
   } catch (error) {
     console.error(error);
@@ -57,6 +71,7 @@ interface Article {
 interface Data {
   articles: Article[];
   categories: Category[];
+  author: any;
 }
 
 export default async function LayoutRoute({
@@ -70,7 +85,10 @@ export default async function LayoutRoute({
   };
 }) {
   const { category } = params;
-  const { categories, articles } = (await fetchSideMenuData(category)) as Data;
+  const { categories, articles, author } = (await fetchSideMenuData(
+    category,
+    params.slug
+  )) as Data;
 
   return (
     <section className="container p-8 mx-auto space-y-6 sm:space-y-12">
@@ -81,6 +99,7 @@ export default async function LayoutRoute({
             categories={categories}
             articles={articles}
             params={params}
+            author={author}
           />
         </aside>
       </div>
@@ -99,7 +118,6 @@ export async function generateStaticParams() {
     },
     options
   );
-
   return articleResponse.data.map(
     (article: {
       attributes: {
