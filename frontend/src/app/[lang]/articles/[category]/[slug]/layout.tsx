@@ -42,7 +42,7 @@ async function fetchSideMenuData(filter: string, slug: string) {
     return {
       articles: articlesResponse.data,
       categories: categoriesResponse.data,
-      author: currentAuthor.attributes,
+      author: currentAuthor?.attributes,
     };
   } catch (error) {
     console.error(error);
