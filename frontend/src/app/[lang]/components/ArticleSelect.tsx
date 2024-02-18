@@ -39,6 +39,7 @@ export default function ArticleSelect({
   };
   author: any;
 }) {
+  console.log(author);
   return (
     <div className="p-4 rounded-lg dark:bg-gray-900 min-h-[365px] relative">
       <h4 className="text-xl font-semibold">Сategories</h4>
@@ -90,18 +91,20 @@ export default function ArticleSelect({
           ""
         )}
       </div>
-      <h4 className="text-xl font-semibold">Author</h4>
 
-      {author && (
-        <div className="flex items-center space-x-2 py-2">
-          <img
-            src={author.avatar.data.attributes.url}
-            alt={author.name}
-            className="w-12 h-12 rounded-full"
-          />
-          <div>
-            <h4 className="text-lg font-semibold">{author.name}</h4>
-            <p className="text-sm">{author.bio}</p>
+      {!!author && (
+        <div>
+          <h4 className="text-xl font-semibold">Author</h4>
+          <div className="flex items-center space-x-2 py-2">
+            <img
+              src={author.avatar.data.attributes.url}
+              alt={author.name}
+              className="w-12 h-12 rounded-full"
+            />
+            <div>
+              <h4 className="text-lg font-semibold">{author.name}</h4>
+              <p className="text-sm">{author.bio}</p>
+            </div>
           </div>
         </div>
       )}
