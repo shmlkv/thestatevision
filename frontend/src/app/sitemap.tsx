@@ -63,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // if (currentCategory)
       if (!currentCategory) return;
       return {
-        url: `https://thestate.vision/en/${currentCategory}/${attributes.slug}`,
+        url: `https://thestate.vision/en/articles/${currentCategory}/${attributes.slug}`,
         lastModified: new Date(attributes.updatedAt),
         changeFrequency: "weekly",
         priority: 0.5,
