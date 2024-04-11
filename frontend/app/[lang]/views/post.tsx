@@ -44,7 +44,7 @@ export default function Post({ data }: { data: Article }) {
         <img
           src={imageUrl}
           alt="article cover image"
-        classsvgName="w-full h-96 object-cover rounded-lg"
+          className="w-full h-96 object-cover rounded-lg"
         />
       )}
       <div
