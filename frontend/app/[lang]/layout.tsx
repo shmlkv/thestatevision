@@ -99,11 +99,11 @@ export default async function RootLayout({
               width="3072"
               height="768"
               data-ready="true"
-            ></canvas>
+            />
             <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-l from-transparent via-transparent via-50% dark:to-black"></div>
             <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-transparent via-50% dark:to-black"></div>
           </div>
-        </div>{" "}
+        </div>
         <Navbar
           links={navbar.links}
           logoUrl={navbarLogoUrl}

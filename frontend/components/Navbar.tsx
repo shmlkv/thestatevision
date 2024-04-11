@@ -4,7 +4,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import DashboardLink from "./DashboardLink";
 import Logo from "./Logo";
 
 interface NavLink {

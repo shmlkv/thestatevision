@@ -44,7 +44,7 @@ export default function Post({ data }: { data: Article }) {
         <img
           src={imageUrl}
           alt="article cover image"
-          className="w-full h-96 object-cover rounded-lg"
+        classsvgName="w-full h-96 object-cover rounded-lg"
         />
       )}
       <div
@@ -52,14 +52,13 @@ export default function Post({ data }: { data: Article }) {
       "
       >
         <div className="">
+          <div className="space-y-6">
+            <h1 className="leading-tight text-5xl font-bold ">{title}</h1>
+          </div>
 
-        <div className="space-y-6">
-          <h1 className="leading-tight text-5xl font-bold ">{title}</h1>
-        </div>
-
-        <div className="dark:text-gray-100">
-        </div>
-          <p>{description}</p>
+          <div className="dark:text-gray-100 font-extralight  text-3xl font-italic py-6">
+            {description}
+          </div>
 
           {data.attributes.blocks.map((section: any, index: number) =>
             postRenderer(section, index)

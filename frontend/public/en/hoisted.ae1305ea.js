@@ -107,6 +107,7 @@ class p {
   }
 }
 window.addEventListener("load", () => {
+  console.log("setting stars");
   const s = document.querySelector(".js-stars");
   if (!(s instanceof HTMLCanvasElement)) return;
   new v(s).start(), (s.dataset.ready = "true");
