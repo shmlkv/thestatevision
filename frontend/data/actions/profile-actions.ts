@@ -1,7 +1,8 @@
 "use server";
-import { flattenAttributes } from "@/lib/utils";
+
 import qs from "qs";
 import { mutateData } from "../services/mutate-data";
+import { flattenAttributes } from "../utils";
 
 export async function updateProfileAction(
   userId: string,

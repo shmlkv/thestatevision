@@ -121,6 +121,7 @@ export default async function RootLayout({
           legalLinks={footer.legalLinks}
           socialLinks={footer.socialLinks}
         />
+        {/* <Header /> */}
       </body>
     </html>
   );
