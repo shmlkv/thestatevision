@@ -2,6 +2,7 @@
   "scripts": {
     "start": "cd backend && yarn start",
     "build": "cd backend && yarn && yarn build",
+    "build:frontend": "cd frontend && yarn build",
     "frontend": "yarn dev --prefix ../frontend/",
     "backend": "yarn dev --prefix ../backend/",
     "clear": "cd frontend && rm -rf .next && rm -rf cache",
@@ -19,6 +20,7 @@
   "dependencies": {
     "@strapi/provider-upload-cloudinary": "^4.16.2",
     "concurrently": "^8.2.2",
+    "feed": "^4.2.2",
     "strapi-plugin-import-export-entries": "^1.23.1"
   }
 }
