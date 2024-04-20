@@ -17,15 +17,10 @@ function getLocale(request: NextRequest): string | undefined {
   return matchLocale(languages, locales, i18n.defaultLocale);
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  // const user = await getUserMeLoader();
-  const currentPath = request.nextUrl.pathname;
+  console.log("middleware", pathname);
 
-  // if (currentPath.startsWith("/dashboard") && user.ok === false) {
-  // return NextResponse.redirect(new URL("/signin", request.url));
-  // }
-  // console.log({ user });
   // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
   // // If you have one
   if (
@@ -53,6 +48,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(
       new URL(`/${locale}/${pathname}`, request.url)
     );
+  } else {
+    return NextResponse.next();
   }
 }
 

@@ -1,6 +1,5 @@
 // import { LogoutButton } from "@/components/custom/LogoutButton";
 
-import { LogoutButton } from "../../../components/custom/LogoutButton";
 import { getUserMeLoader } from "../../../data/services/get-user-me-loader";
 
 export default async function DashboardRoute() {
