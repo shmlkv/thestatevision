@@ -49,7 +49,7 @@ export function ProfileForm({
   return (
     <form action={formAction} className={cn("space-y-4", className)}>
       <div className="space-y-4 grid ">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 gap-4">
           <Input
             id="username"
             name="username"
@@ -65,7 +65,7 @@ export function ProfileForm({
             defaultValue={data.email || ""}
             disabled
           />
-          <CountBox text={data.credits} />
+          {/* <CountBox text={data.credits} /> */}
         </div>
 
         <div className="grid grid-cols-2 gap-4">

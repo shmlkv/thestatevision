@@ -8,6 +8,7 @@ export default async function AccountRoute() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 p-4">
+      <h1 className="col-span-5 text-4xl font-bold">Account</h1>
       <ProfileForm data={userData} className="col-span-3" />
       {/* <ProfileImageForm data={userImage} className="col-span-2" /> */}
     </div>

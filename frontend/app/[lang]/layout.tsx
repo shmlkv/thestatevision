@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import { i18n } from "../../i18n-config";
 import { FALLBACK_SEO } from "./utils/constants";
+import { getUserMeLoader } from "../../data/services/get-user-me-loader";
 
 const font = IBM_Plex_Sans({
   weight: "400",
@@ -87,6 +88,7 @@ export default async function RootLayout({
   const footerLogoUrl = getStrapiMedia(
     footer.footerLogo.logoImg.data.attributes.url
   );
+  const user = await getUserMeLoader();
 
   return (
     <html lang={params.lang} className={`  ${font.className}`}>
@@ -108,6 +110,7 @@ export default async function RootLayout({
           links={navbar.links}
           logoUrl={navbarLogoUrl}
           logoText={navbar.navbarLogo.logoText}
+          user={user}
         />
         <main className=" z-10 relative dark:text-gray-100 min-h-screen">
           {children}

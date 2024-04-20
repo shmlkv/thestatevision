@@ -8,7 +8,7 @@ import Testimonials from "../../../components/Testimonials";
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
     case "sections.hero":
-      return <Hero key={index} data={section} />;
+      return <Hero  key={index} data={section} />;
     case "sections.features":
       return <Features key={index} data={section} />;
     case "sections.testimonials-group":

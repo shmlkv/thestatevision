@@ -58,16 +58,17 @@ export default async function Navbar({
   links,
   logoUrl,
   logoText,
+  user,
 }: {
   links: Array<NavLink>;
   logoUrl: string | null;
   logoText: string | null;
+  user: any;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeMenu = () => {
     setMobileMenuOpen(false);
   };
-
   return (
     <div className="p-4 z-10 relative  dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
@@ -82,8 +83,17 @@ export default async function Navbar({
             {links.map((item: NavLink) => (
               <NavLink key={item.id} {...item} />
             ))}
-
-            {/* <DashboardLink /> */}
+            {user.ok ? (
+              <NavLink
+                newTab={false}
+                id={14}
+                url="/en/dashboard"
+                text="Dashboard"
+              />
+            ) : (
+              <></>
+              // <NavLink newTab={false} id={14} url="/en/login" text="Login" />
+            )}
           </ul>
         </div>
 
