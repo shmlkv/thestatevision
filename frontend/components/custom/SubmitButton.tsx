@@ -10,7 +10,7 @@ function Loader({ text }: { readonly text: string }) {
     <div className="flex items-center space-x-2">
       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
       <p>{text}</p>
-    </div>
+  </div>
   );
 }
 
