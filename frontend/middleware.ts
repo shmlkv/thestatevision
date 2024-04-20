@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
-import { getUserMeLoader } from "./data/services/get-user-me-loader";
 import { i18n } from "./i18n-config";
 
 function getLocale(request: NextRequest): string | undefined {
@@ -38,22 +37,7 @@ export async function middleware(request: NextRequest) {
     ].includes(pathname)
   )
     return;
-
-  // Check if there is any supported locale in the pathname
-  const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  );
-
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
-
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    return NextResponse.redirect(
-      new URL(`/${locale}/${pathname}`, request.url)
-    );
-  }
+  return NextResponse.next();
 }
 
 export const config = {
