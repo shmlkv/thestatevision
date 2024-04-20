@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from "next";
 import "./globals.css";
 import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
@@ -125,6 +126,8 @@ export default async function RootLayout({
           socialLinks={footer.socialLinks}
         />
         {/* <Header /> */}
+        <GoogleAnalytics gaId="G-G0ZN7KL1H0" />
+
       </body>
     </html>
   );
