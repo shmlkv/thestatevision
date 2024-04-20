@@ -20,13 +20,12 @@ function getLocale(request: NextRequest): string | undefined {
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const user = await getUserMeLoader();
+  // const user = await getUserMeLoader(); // !!!
   const currentPath = request.nextUrl.pathname;
 
-  if (currentPath.startsWith("/dashboard") && user.ok === false) {
-    return NextResponse.redirect(new URL("/signin", request.url));
-  }
-  console.log({ user });
+  // if (currentPath.startsWith("/dashboard") && user.ok === false) {
+  //   return NextResponse.redirect(new URL("/login", request.url));
+  // }
   // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
   // // If you have one
   if (
