@@ -1,16 +1,16 @@
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
+import Sidebar from "@/components/custom/SideBar";
 import { IBM_Plex_Sans } from "next/font/google";
-import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import { getUserMeLoader } from "../../data/services/get-user-me-loader";
 import { i18n } from "../../i18n-config";
 import { FALLBACK_SEO } from "./utils/constants";
-import { getUserMeLoader } from "../../data/services/get-user-me-loader";
 
 const font = IBM_Plex_Sans({
   weight: "400",
@@ -94,17 +94,20 @@ export default async function RootLayout({
   return (
     <html lang={params.lang} className={`  ${font.className}`}>
       <body>
-        <div id="stars-container" className="relative max-w-screen-2xl mx-auto">
+        <div
+          id="stars-container"
+          className="relative z-1 max-w-screen-2xl mx-auto"
+        >
           <script type="module" src="./hoisted.ae1305ea.js"></script>
-          <div className="absolute top-0 left-0 right-0 h-[600px] ">
+          <div className="z-1 absolute top-0 left-0 right-0 h-[600px] ">
             <canvas
-              className="js-stars absolute top-0 left-0 w-full transition duration-1000 origin-bottom opacity-0 data-[ready]:opacity-100 scale-[0.98] data-[ready]:scale-100 h-40 sm:h-96"
+              className="-z-1 js-stars absolute top-0 left-0 w-full transition duration-1000 origin-bottom opacity-0 data-[ready]:opacity-100 scale-[0.98] data-[ready]:scale-100 h-40 sm:h-96"
               width="3072"
               height="768"
               data-ready="true"
             />
-            <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-l from-transparent via-transparent via-50% dark:to-black"></div>
-            <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-transparent via-50% dark:to-black"></div>
+            {/* <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-l from-transparent via-transparent via-50% dark:to-black"></div> */}
+            {/* <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-transparent via-50% dark:to-black"></div> */}
           </div>
         </div>
         <Navbar
@@ -113,10 +116,12 @@ export default async function RootLayout({
           logoText={navbar.navbarLogo.logoText}
           user={user}
         />
-        <main className=" z-10 relative dark:text-gray-100 min-h-screen">
-          {children}
-        </main>
-        <Banner data={notificationBanner} />
+
+        <div className="container z-10 relative flex flex-col lg:flex-row lg:space-x-4">
+          <Sidebar />
+          <main className="dark:text-white min-h-[700px]">{children}</main>
+        </div>
+        {/* <Banner data={notificationBanner} /> */}
         <Footer
           logoUrl={footerLogoUrl}
           logoText={footer.footerLogo.logoText}
@@ -127,7 +132,6 @@ export default async function RootLayout({
         />
         {/* <Header /> */}
         <GoogleAnalytics gaId="G-G0ZN7KL1H0" />
-
       </body>
     </html>
   );
