@@ -1,7 +1,6 @@
 "use client";
 import { CalendarCheck2, Home, LibraryBig, Text } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { CgProfile } from "react-icons/cg";
 import { FaTelegram, FaTwitter } from "react-icons/fa";
 import { PiSealQuestionFill } from "react-icons/pi";
 import { SideBarLink } from "./SideBarLink";
@@ -13,12 +12,12 @@ function Sidebar() {
     <div className="space-y-6 py-4 z-1000 text-white max-w-[200px] w-full">
       <div className="space-y-1">
         <SideBarLink href="./" Icon={Home} text="Home" path={path} />
-        <SideBarLink
+        {/* <SideBarLink
           href="dashboard"
           Icon={CgProfile}
           text="Profile"
           path={path}
-        />
+        /> */}
       </div>
       <div className="space-y-1">
         <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight">
