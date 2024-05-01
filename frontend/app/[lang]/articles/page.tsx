@@ -2,8 +2,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { fetchAPI } from "../utils/fetch-api";
 
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import Loader from "../../../components/Loader";
-import PageHeader from "../../../components/PageHeader";
 import Blog from "../views/blog-list";
 
 interface Meta {
@@ -14,7 +15,7 @@ interface Meta {
   };
 }
 
-export default function Profile() {
+export default function Articles() {
   const [meta, setMeta] = useState<Meta | undefined>();
   const [data, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
@@ -69,6 +70,18 @@ export default function Profile() {
   return (
     <div>
       {/* <PageHeader heading="All articles" text="~" /> */}
+      <div className="flex items-center justify-between border border-gray-200 dark:border-gray-700 p-4 rounded" >
+        <div>
+
+        <h1 className="text-xl font-bold dark:text-white">We are open for your opinion</h1>
+        <p className="text-gray-600 dark:text-gray-400">  If you have any idea or suggestion, please let us know. We will be happy to hear from you.</p>
+        </div>
+        <Button>
+          <Link href="/articles/new">
+Create new article
+          </Link>
+        </Button>
+      </div>
       <Blog data={data}>
         {meta!.pagination.start + meta!.pagination.limit <
           meta!.pagination.total && (
