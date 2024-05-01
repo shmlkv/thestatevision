@@ -39,7 +39,6 @@ export default function ArticleAbout({
   };
   author: any;
 }) {
-  console.log(author);
   return (
     <div className="p-4 rounded-lg dark:bg-gray-900 min-h-[365px] relative">
       <h4 className="text-xl font-semibold">Сategories</h4>

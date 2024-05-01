@@ -29,7 +29,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     { headers: { Authorization: `Bearer ${token}` } }
   );
-  console.log({ categories });
 
   const mainPages = [
     {
@@ -71,7 +70,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
     .concat(
       categories.data.map(({ attributes }: any) => {
-        console.log({ attributes });
         return {
           url: `https://thestate.vision/en/category/${attributes.slug}`,
           lastModified: new Date(attributes.updatedAt),

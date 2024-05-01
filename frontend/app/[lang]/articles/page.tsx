@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { fetchAPI } from "../utils/fetch-api";
 
 import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
 import Link from "next/link";
 import Loader from "../../../components/Loader";
 import Blog from "../views/blog-list";
@@ -73,12 +74,17 @@ export default function Articles() {
       <div className="flex items-center justify-between border border-gray-200 dark:border-gray-700 p-4 rounded" >
         <div>
 
-        <h1 className="text-xl font-bold dark:text-white">We are open for your opinion</h1>
-        <p className="text-gray-600 dark:text-gray-400">  If you have any idea or suggestion, please let us know. We will be happy to hear from you.</p>
+        <h1 className="text-xl font-bold dark:text-white">
+          Become an author
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400">
+          We are always looking for new authors to join our community.
+        </p>
         </div>
         <Button>
+            <Plus size={24} className="pr-2" />
           <Link href="/articles/new">
-Create new article
+Become an author
           </Link>
         </Button>
       </div>
