@@ -45,7 +45,7 @@ function Sidebar() {
             path={path}
           />
           <SideBarLink
-            href="non"
+            href="events"
             Icon={CalendarCheck2}
             text="Events"
             path={path}

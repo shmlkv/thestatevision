@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import Loader from "../../../components/Loader";
+import ResourcesList from "../views/resources-list";
 
 interface Meta {
   pagination: {
@@ -41,7 +42,7 @@ export default function Resources() {
       };
       const options = { headers: { Authorization: `Bearer ${token}` } };
       const responseData = await fetchAPI(path, urlParamsObject, options);
-
+      console.log({ responseData });
       if (start === 0) {
         setData(responseData.data);
       } else {
@@ -69,21 +70,20 @@ export default function Resources() {
 
   return (
     <div>
-      {/* <PageHeader heading="All articles" text="~" /> */}
       <div className="flex items-center justify-between border border-gray-200 dark:border-gray-700 p-4 rounded">
         <div>
-          <h1 className="text-xl font-bold dark:text-white">
-            Become an author
-          </h1>
+          <h1 className="text-xl font-bold dark:text-white">Submit a link</h1>
           <p className="text-gray-600 dark:text-gray-400">
-            We are always looking for new authors to join our community.
+            Share some interesting articles, blogs, or resources about network
+            states
           </p>
         </div>
         <Button>
           <Plus size={24} className="pr-2" />
-          <Link href="/articles/new">Become an author</Link>
+          <Link href="/resources/new">Submit a link</Link>
         </Button>
       </div>
+      <ResourcesList data={data} />
     </div>
   );
 }

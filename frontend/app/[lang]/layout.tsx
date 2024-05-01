@@ -5,6 +5,7 @@ import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
 import Sidebar from "@/components/custom/SideBar";
+import { ToastProvider } from "@/components/ui/toast";
 import { IBM_Plex_Sans } from "next/font/google";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
@@ -93,48 +94,51 @@ export default async function RootLayout({
 
   return (
     <html lang={params.lang} className={`  ${font.className}`}>
-      <body>
-        <div
-          id="stars-container"
-          className="relative z-1 max-w-screen-2xl mx-auto"
-        >
-          <script type="module" src="./hoisted.ae1305ea.js"></script>
-          <div className="z-1 absolute top-0 left-0 right-0 h-[600px] ">
-            <canvas
-              className="-z-1 js-stars absolute top-0 left-0 w-full transition duration-1000 origin-bottom opacity-0 data-[ready]:opacity-100 scale-[0.98] data-[ready]:scale-100 h-40 sm:h-96"
-              width="3072"
-              height="768"
-              data-ready="true"
-            />
-            {/* <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-l from-transparent via-transparent via-50% dark:to-black"></div> */}
-            {/* <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-transparent via-50% dark:to-black"></div> */}
+      <ToastProvider>
+        <body>
+          <div
+            id="stars-container"
+            className="relative z-1 max-w-screen-2xl mx-auto"
+          >
+            <script type="module" src="./hoisted.ae1305ea.js"></script>
+            <div className="z-1 absolute top-0 left-0 right-0 h-[600px] ">
+              <canvas
+                className="-z-1 js-stars absolute top-0 left-0 w-full transition duration-1000 origin-bottom opacity-0 data-[ready]:opacity-100 scale-[0.98] data-[ready]:scale-100 h-40 sm:h-96"
+                width="3072"
+                height="768"
+                data-ready="true"
+              />
+              {/* <div className="hidden lg:block absolute top-0 left-0 bottom-0 w-1/2 bg-gradient-to-l from-transparent via-transparent via-50% dark:to-black"></div> */}
+              {/* <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-transparent via-50% dark:to-black"></div> */}
+            </div>
           </div>
-        </div>
-        <Navbar
-          links={navbar.links}
-          logoUrl={navbarLogoUrl}
-          logoText={navbar.navbarLogo.logoText}
-          user={user}
-        />
 
-        <div className="container z-10 relative flex flex-col lg:flex-row lg:space-x-4">
-          <Sidebar />
-          <main className="dark:text-white min-h-[700px] w-full">
-            {children}
-          </main>
-        </div>
-        {/* <Banner data={notificationBanner} /> */}
-        <Footer
-          logoUrl={footerLogoUrl}
-          logoText={footer.footerLogo.logoText}
-          menuLinks={footer.menuLinks}
-          categoryLinks={footer.categories.data}
-          legalLinks={footer.legalLinks}
-          socialLinks={footer.socialLinks}
-        />
-        {/* <Header /> */}
-        <GoogleAnalytics gaId="G-G0ZN7KL1H0" />
-      </body>
+          <Navbar
+            links={navbar.links}
+            logoUrl={navbarLogoUrl}
+            logoText={navbar.navbarLogo.logoText}
+            user={user}
+          />
+
+          <div className="container z-10 relative flex flex-col lg:flex-row lg:space-x-4">
+            <Sidebar />
+            <main className="dark:text-white min-h-[700px] w-full">
+              {children}
+            </main>
+          </div>
+          {/* <Banner data={notificationBanner} /> */}
+          <Footer
+            logoUrl={footerLogoUrl}
+            logoText={footer.footerLogo.logoText}
+            menuLinks={footer.menuLinks}
+            categoryLinks={footer.categories.data}
+            legalLinks={footer.legalLinks}
+            socialLinks={footer.socialLinks}
+          />
+          {/* <Header /> */}
+          <GoogleAnalytics gaId="G-G0ZN7KL1H0" />
+        </body>
+      </ToastProvider>
     </html>
   );
 }
