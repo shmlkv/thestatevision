@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
+import { getUserMeLoader } from "./data/services/get-user-me-loader";
 import { i18n } from "./i18n-config";
 
 function getLocale(request: NextRequest): string | undefined {
@@ -20,6 +21,19 @@ function getLocale(request: NextRequest): string | undefined {
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   console.log("middleware", pathname);
+  const user = await getUserMeLoader();
+  console.log({ user });
+  if (!user.data) {
+    if (
+      [
+        "/dashboard",
+        "/articles/new",
+        // Your other files in `public`
+      ].includes(pathname)
+    ) {
+      return NextResponse.redirect(new URL(`/login`, request.url));
+    }
+  }
 
   // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
   // // If you have one
@@ -36,7 +50,8 @@ export async function middleware(request: NextRequest) {
 
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+    (locale) =>
+      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   );
 
   // Redirect if there is no locale
@@ -46,7 +61,7 @@ export async function middleware(request: NextRequest) {
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
     return NextResponse.redirect(
-      new URL(`/${locale}/${pathname}`, request.url)
+      new URL(`/${locale}/${pathname}`, request.url),
     );
   } else {
     return NextResponse.next();

@@ -83,11 +83,11 @@ export default async function RootLayout({
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
   const navbarLogoUrl = getStrapiMedia(
-    navbar.navbarLogo.logoImg.data.attributes.url
+    navbar.navbarLogo.logoImg.data.attributes.url,
   );
 
   const footerLogoUrl = getStrapiMedia(
-    footer.footerLogo.logoImg.data.attributes.url
+    footer.footerLogo.logoImg.data.attributes.url,
   );
   const user = await getUserMeLoader();
 
@@ -119,7 +119,9 @@ export default async function RootLayout({
 
         <div className="container z-10 relative flex flex-col lg:flex-row lg:space-x-4">
           <Sidebar />
-          <main className="dark:text-white min-h-[700px]">{children}</main>
+          <main className="dark:text-white min-h-[700px] w-full">
+            {children}
+          </main>
         </div>
         {/* <Banner data={notificationBanner} /> */}
         <Footer

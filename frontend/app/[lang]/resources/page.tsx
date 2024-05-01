@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import Loader from "../../../components/Loader";
-import Blog from "../views/blog-list";
 
 interface Meta {
   pagination: {
@@ -16,7 +15,7 @@ interface Meta {
   };
 }
 
-export default function Articles() {
+export default function Resources() {
   const [meta, setMeta] = useState<Meta | undefined>();
   const [data, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
@@ -25,7 +24,7 @@ export default function Articles() {
     setLoading(true);
     try {
       const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-      const path = `/articles`;
+      const path = `/resources`;
       const urlParamsObject = {
         sort: { createdAt: "desc" },
         populate: {
@@ -58,8 +57,8 @@ export default function Articles() {
   }, []);
 
   function loadMorePosts(): void {
-    const nextPosts = meta!.pagination.start + meta!.pagination.limit;
-    fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
+    // const nextPosts = meta!.pagination.start + meta!.pagination.limit;
+    // fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
   }
 
   useEffect(() => {
@@ -85,20 +84,6 @@ export default function Articles() {
           <Link href="/articles/new">Become an author</Link>
         </Button>
       </div>
-      <Blog data={data}>
-        {meta!.pagination.start + meta!.pagination.limit <
-          meta!.pagination.total && (
-          <div className="flex justify-center">
-            <button
-              type="button"
-              className="px-6 py-3 text-sm rounded-lg hover:underline dark:bg-gray-900 dark:text-gray-400"
-              onClick={loadMorePosts}
-            >
-              Load more posts...
-            </button>
-          </div>
-        )}
-      </Blog>
     </div>
   );
 }

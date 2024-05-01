@@ -52,7 +52,7 @@ export default function ArticleAbout({
                 href={`/articles/${category.attributes.slug}`}
                 className={selectedFilter(
                   category.attributes.slug,
-                  params.category
+                  params.category,
                 )}
               >
                 {category.attributes.name}
