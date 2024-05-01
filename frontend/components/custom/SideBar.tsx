@@ -2,7 +2,7 @@
 import { CalendarCheck2, Home, LibraryBig, Text } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { CgProfile } from "react-icons/cg";
-import { FaTelegram, FaTwitter } from "react-icons/fa";
+import { FaDonate, FaTelegram, FaTwitter } from "react-icons/fa";
 import { PiSealQuestionFill } from "react-icons/pi";
 import { SideBarLink } from "./SideBarLink";
 
@@ -67,6 +67,12 @@ function Sidebar() {
             href="about"
             Icon={PiSealQuestionFill}
             text="FAQ"
+            path={path}
+          />
+          <SideBarLink
+            href="donate"
+            Icon={FaDonate}
+            text="Donate"
             path={path}
           />
           <SideBarLink

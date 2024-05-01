@@ -1,3 +1,4 @@
+import { Comments } from "@/components/custom/Comments";
 import ArticleAbout from "../../../../../components/ArticleAbout";
 import { fetchAPI } from "../../../utils/fetch-api";
 
@@ -9,7 +10,7 @@ async function fetchSideMenuData(filter: string, slug: string) {
     const categoriesResponse = await fetchAPI(
       "/categories",
       { populate: "*" },
-      options
+      options,
     );
 
     const articlesResponse = await fetchAPI(
@@ -23,7 +24,7 @@ async function fetchSideMenuData(filter: string, slug: string) {
             },
           }
         : {},
-      options
+      options,
     );
 
     const authors = await fetchAPI(
@@ -31,12 +32,12 @@ async function fetchSideMenuData(filter: string, slug: string) {
       {
         populate: "*",
       },
-      options
+      options,
     );
     const currentAuthor = authors.data.find((a: any) =>
       a?.attributes?.articles?.data.find(
-        (art: any) => art?.attributes?.slug === slug
-      )
+        (art: any) => art?.attributes?.slug === slug,
+      ),
     );
 
     return {
@@ -87,7 +88,7 @@ export default async function LayoutRoute({
   const { category } = params;
   const { categories, articles, author } = (await fetchSideMenuData(
     category,
-    params.slug
+    params.slug,
   )) as Data;
 
   return (
@@ -103,6 +104,15 @@ export default async function LayoutRoute({
           />
         </aside>
       </div>
+      <Comments
+        apiBaseUrl="https://replyke.app"
+        callbacks={{
+          loginClickCallback: () => {},
+          commentAuthorClickCallback: () => {},
+          currentUserClickCallback: () => {},
+        }}
+        articleId="unique-article-id"
+      />
     </section>
   );
 }
@@ -116,7 +126,7 @@ export async function generateStaticParams() {
     {
       populate: ["category"],
     },
-    options
+    options,
   );
   return articleResponse.data.map(
     (article: {
@@ -126,6 +136,9 @@ export async function generateStaticParams() {
           slug: string;
         };
       };
-    }) => ({ slug: article.attributes.slug, category: article.attributes.slug })
+    }) => ({
+      slug: article.attributes.slug,
+      category: article.attributes.slug,
+    }),
   );
 }

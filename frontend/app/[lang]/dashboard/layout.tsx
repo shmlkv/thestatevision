@@ -9,7 +9,7 @@ export default function DashboardLayout({
   return (
     <div className=" flex  w-full h-full max-h-screen justify-between">
       <div className="flex h-full max-h-screen flex-col gap-2">
-        <div className="flex h-[60px] items-center px-6">
+        {/* <div className="flex h-[60px] items-center px-6">
           <Link
             className="flex items-center gap-2 font-semibold"
             href="/dashboard"
@@ -17,16 +17,16 @@ export default function DashboardLayout({
             <LayoutDashboardIcon className="h-6 w-6" />
             <span className="">Dashboard</span>
           </Link>
-        </div>
+        </div> */}
         <div className="flex-1 overflow-auto py-2">
           <nav className="grid items-start px-4 text-sm font-medium">
             {/* <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="/dashboard/summaries"
-              >
-                <ViewIcon className="h-4 w-4" />
-                Summaries
-              </Link> */}
+              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              href="/dashboard/summaries"
+            >
+              <ViewIcon className="h-4 w-4" />
+              Summaries
+            </Link> */}
 
             <Link
               className="flex items-center  gap-3 rounded-lg px-3 py-2  transition-all hover:text-gray-900 dark:text-white dark:hover:text-gray-50"
@@ -39,7 +39,7 @@ export default function DashboardLayout({
           </nav>
         </div>
       </div>
-      <main className="flex flex-col overflow-scroll">{children}</main>
+      <main className="flex flex-col overflow-scroll w-full">{children}</main>
     </div>
   );
 }

@@ -49,42 +49,50 @@ export function ProfileForm({
 
   return (
     <div className="border p-5 border-slate-800 rounded-md w-full">
-      <h2 className="text-md pb-2 font-bold">Profile</h2>
-      <form action={formAction} className={cn("space-y-4", className)}>
+      <h2 className="text-xl pb-2 font-bold">Profile</h2>
+      <form action={formAction} className={cn("space-y-4 w-full", className)}>
         <div className="space-y-4 grid ">
-          <div className="grid grid-cols-2 gap-4">
-            <Input
-              id="username"
-              name="username"
-              placeholder="Username"
-              defaultValue={data.username || ""}
-              disabled
-            />
-            <input type="hidden" name="id" value={data.id} />
-            <Input
-              id="email"
-              name="email"
-              placeholder="Email"
-              defaultValue={data.email || ""}
-              disabled
-            />
-            {/* <CountBox text={data.credits} /> */}
-          </div>
+          <div className="text-sm font-semibold text-slate-400">Username</div>
+          <Input
+            id="username"
+            name="username"
+            placeholder="Username"
+            defaultValue={data.username || ""}
+            disabled
+          />
+          <input type="hidden" name="id" value={data.id} />
+          <div className="text-sm font-semibold text-slate-400">Email</div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <Input
-              id="firstName"
-              name="firstName"
-              placeholder="First Name"
-              defaultValue={data.firstName || ""}
-            />
-            <Input
-              id="lastName"
-              name="lastName"
-              placeholder="Last Name"
-              defaultValue={data.lastName || ""}
-            />
-          </div>
+          <Input
+            id="email"
+            name="email"
+            placeholder="Email"
+            defaultValue={data.email || ""}
+            disabled
+          />
+          {/* <CountBox text={data.credits} /> */}
+          {/* </div> */}
+
+          {/* <div className="grid grid-cols-2 gap-4"> */}
+          <div className="text-sm font-semibold text-slate-400">Firstname</div>
+
+          <Input
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            defaultValue={data.firstName || ""}
+          />
+          <div className="text-sm font-semibold text-slate-400">Lastname</div>
+
+          <Input
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            defaultValue={data.lastName || ""}
+          />
+          {/* </div> */}
+          <div className="text-sm font-semibold text-slate-400">Bio</div>
+
           <Textarea
             id="bio"
             name="bio"
