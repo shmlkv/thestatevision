@@ -5,8 +5,8 @@ import { formatDate } from "../utils/api-helpers";
 interface Resource {
   id: number;
   attributes: {
-    Title: string;
-    Text: string;
+    title: string;
+    text: string;
     URL: string;
     createdAt: string;
     updatedAt: string;
@@ -36,6 +36,7 @@ export default function ResourcesList({
   data: Resource[];
   children?: React.ReactNode;
 }) {
+  console.log({ articles });
   return (
     <section className="container p-6 mx-auto space-y-6 sm:space-y-12">
       <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -50,7 +51,7 @@ export default function ResourcesList({
               <div className="p-6 space-y-2 relative">
                 <ArrowUpRight className="absolute top-6 right-6" />
                 <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
-                  {article.attributes.Title}
+                  {article.attributes.title}
                 </h3>
 
                 <div className="flex justify-between items-center">
@@ -63,7 +64,7 @@ export default function ResourcesList({
                     </span>
                   )} */}
                 </div>
-                <p className="py-4">{article.attributes.Text}</p>
+                <p className="py-4">{article.attributes.text}</p>
               </div>
             </Link>
           );
