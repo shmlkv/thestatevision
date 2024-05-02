@@ -49,7 +49,14 @@ export function ProfileForm({
   const [formState, formAction] = useFormState(updateUserWithId, INITIAL_STATE);
 
   return (
-    <div className="border p-5 border-slate-800 rounded-md w-full">
+    <div
+      className="border p-5 border-slate-800 rounded-md w-full"
+      style={
+        {
+          "-webkit-backdrop-filter": "blur(2px)",
+        } as React.CSSProperties
+      }
+    >
       <h2 className="text-xl pb-2 font-bold">Profile</h2>
       <form action={formAction} className={cn("space-y-4 w-full", className)}>
         <div className="space-y-4 grid ">

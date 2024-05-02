@@ -40,7 +40,14 @@ export default function ArticleAbout({
   author: any;
 }) {
   return (
-    <div className="p-4 rounded-lg dark:bg-gray-900 min-h-[365px] relative">
+    <div
+      className="p-4 rounded-lg min-h-[365px] relative"
+      style={
+        {
+          "-webkit-backdrop-filter": "blur(2px)",
+        } as React.CSSProperties
+      }
+    >
       <h4 className="text-xl font-semibold">Сategories</h4>
 
       <div>
