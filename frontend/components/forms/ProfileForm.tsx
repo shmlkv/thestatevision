@@ -59,7 +59,7 @@ export function ProfileForm({
               width: "70px",
               height: "70px",
               // border: "1px solid #333",
-              backgroundColor: "yellow",
+              backgroundColor: "white",
             }}
           >
             <AvatarFallback
@@ -69,7 +69,7 @@ export function ProfileForm({
                 height: "70px",
                 // border: "1px solid #333",
                 fontSize: "1.5rem",
-                backgroundColor: "yellow",
+                backgroundColor: "white",
               }}
             >
               {data.username.substr(0, 2) || ""}
