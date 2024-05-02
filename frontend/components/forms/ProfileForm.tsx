@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { updateProfileAction } from "../../data/actions/profile-actions";
 import { StrapiErrors } from "../custom/StrapiErrors";
 import { SubmitButton } from "../custom/SubmitButton";
+import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
@@ -52,6 +53,28 @@ export function ProfileForm({
       <h2 className="text-xl pb-2 font-bold">Profile</h2>
       <form action={formAction} className={cn("space-y-4 w-full", className)}>
         <div className="space-y-4 grid ">
+          <Avatar
+            style={{
+              color: "black",
+              width: "70px",
+              height: "70px",
+              // border: "1px solid #333",
+              backgroundColor: "yellow",
+            }}
+          >
+            <AvatarFallback
+              style={{
+                color: "black",
+                width: "70px",
+                height: "70px",
+                // border: "1px solid #333",
+                fontSize: "1.5rem",
+                backgroundColor: "yellow",
+              }}
+            >
+              {data.username.substr(0, 2) || ""}
+            </AvatarFallback>
+          </Avatar>{" "}
           <div className="text-sm font-semibold text-slate-400">Username</div>
           <Input
             id="username"
@@ -62,7 +85,6 @@ export function ProfileForm({
           />
           <input type="hidden" name="id" value={data.id} />
           <div className="text-sm font-semibold text-slate-400">Email</div>
-
           <Input
             id="email"
             name="email"
@@ -72,10 +94,8 @@ export function ProfileForm({
           />
           {/* <CountBox text={data.credits} /> */}
           {/* </div> */}
-
           {/* <div className="grid grid-cols-2 gap-4"> */}
           <div className="text-sm font-semibold text-slate-400">Firstname</div>
-
           <Input
             id="firstName"
             name="firstName"
@@ -83,7 +103,6 @@ export function ProfileForm({
             defaultValue={data.firstName || ""}
           />
           <div className="text-sm font-semibold text-slate-400">Lastname</div>
-
           <Input
             id="lastName"
             name="lastName"
@@ -92,7 +111,6 @@ export function ProfileForm({
           />
           {/* </div> */}
           <div className="text-sm font-semibold text-slate-400">Bio</div>
-
           <Textarea
             id="bio"
             name="bio"
