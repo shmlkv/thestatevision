@@ -1,4 +1,3 @@
-import { Comments } from "@/components/custom/Comments";
 import ArticleAbout from "../../../../../components/ArticleAbout";
 import { fetchAPI } from "../../../utils/fetch-api";
 
@@ -104,7 +103,7 @@ export default async function LayoutRoute({
           />
         </aside>
       </div>
-      <Comments
+      {/* <Comments
         apiBaseUrl="https://replyke.app"
         callbacks={{
           loginClickCallback: () => {},
@@ -112,7 +111,7 @@ export default async function LayoutRoute({
           currentUserClickCallback: () => {},
         }}
         articleId="unique-article-id"
-      />
+      /> */}
     </section>
   );
 }
