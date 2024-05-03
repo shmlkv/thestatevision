@@ -67,7 +67,7 @@ export default function ResourceSubmit({ user }: any) {
       setUrl("");
       setText("");
       toast({
-        title: "✅ Success",
+
 
         description: "Resource submitted successfully.",
       });
