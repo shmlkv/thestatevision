@@ -28,6 +28,7 @@ export async function middleware(request: NextRequest) {
       [
         "/dashboard",
         "/articles/new",
+        "/resources/new",
         // Your other files in `public`
       ].includes(pathname)
     ) {
