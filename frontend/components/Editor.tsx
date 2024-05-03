@@ -33,7 +33,11 @@ import {
   createCodeBlockPlugin,
 } from "@udecode/plate-code-block";
 import { createComboboxPlugin } from "@udecode/plate-combobox";
-import { MARK_COMMENT } from "@udecode/plate-comments";
+import {
+  CommentsProvider,
+  MARK_COMMENT,
+  createCommentsPlugin,
+} from "@udecode/plate-comments";
 import {
   Plate,
   PlateLeaf,
@@ -117,6 +121,7 @@ import { CodeLeaf } from "./plate-ui/code-leaf";
 import { CodeLineElement } from "./plate-ui/code-line-element";
 import { CodeSyntaxLeaf } from "./plate-ui/code-syntax-leaf";
 import { CommentLeaf } from "./plate-ui/comment-leaf";
+import { CommentsPopover } from "./plate-ui/comments-popover";
 import { Editor } from "./plate-ui/editor";
 import { EmojiCombobox } from "./plate-ui/emoji-combobox";
 import { ExcalidrawElement } from "./plate-ui/excalidraw-element";
@@ -153,7 +158,6 @@ const initialValue = [
     children: [{ text: "Hello, World!" }],
   },
 ];
-const lsKey = "plateEditorContent";
 
 export function PlateEditor() {
   const plugins = createPlugins(
@@ -300,7 +304,7 @@ export function PlateEditor() {
       createTrailingBlockPlugin({
         options: { type: ELEMENT_PARAGRAPH },
       }),
-      // createCommentsPlugin(),
+      createCommentsPlugin(),
       createAutoformatPlugin({
         options: {
           rules: [
@@ -362,40 +366,25 @@ export function PlateEditor() {
       ),
     },
   );
-  // const [initialValue, setInitialValue] = useState(() => {
-  //   if (typeof window === "undefined") return [];
-  //   const saved = localStorage.getItem(lsKey);
-  //   return saved
-  //     ? JSON.parse(saved)
-  //     : [{ type: ELEMENT_PARAGRAPH, children: [{ text: "" }] }];
-  // });
-  const handleChange = (newValue: any) => {
-    const content = JSON.stringify(newValue);
-    localStorage.setItem(lsKey, content);
-  };
-  // const [value, setValue] = usePlateStates("plate").value();
+
   return (
     <TooltipProvider>
       <DndProvider backend={HTML5Backend}>
-        {/* <CommentsProvider users={{}} myUserId="1"> */}
-        <Plate
-          plugins={plugins}
-          initialValue={initialValue}
-          onChange={handleChange}
-        >
-          <FixedToolbar>
-            <FixedToolbarButtons />
-          </FixedToolbar>
+        <CommentsProvider users={{}} myUserId="1">
+          <Plate plugins={plugins} initialValue={initialValue}>
+            <FixedToolbar>
+              <FixedToolbarButtons />
+            </FixedToolbar>
 
-          <Editor />
+            <Editor />
 
-          <FloatingToolbar>
-            <FloatingToolbarButtons />
-          </FloatingToolbar>
-          <MentionCombobox items={[]} />
-          {/* <CommentsPopover /> */}
-        </Plate>
-        {/* </CommentsProvider> */}
+            <FloatingToolbar>
+              <FloatingToolbarButtons />
+            </FloatingToolbar>
+            <MentionCombobox items={[]} />
+            <CommentsPopover />
+          </Plate>
+        </CommentsProvider>
       </DndProvider>
     </TooltipProvider>
   );
