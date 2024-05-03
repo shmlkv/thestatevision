@@ -1,4 +1,4 @@
-import { getUserMeLoader } from "../../../data/services/get-user-me-loader";
+import { getUserMeLoader } from "../../../../data/services/get-user-me-loader";
 
 export default async function AccountRoute() {
   const user = await getUserMeLoader();

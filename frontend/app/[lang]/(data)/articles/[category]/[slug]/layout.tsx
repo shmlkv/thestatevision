@@ -1,5 +1,5 @@
-import ArticleAbout from "../../../../../components/ArticleAbout";
-import { fetchAPI } from "../../../utils/fetch-api";
+import ArticleAbout from "../../../../../../components/ArticleAbout";
+import { fetchAPI } from "../../../../utils/fetch-api";
 
 async function fetchSideMenuData(filter: string, slug: string) {
   try {

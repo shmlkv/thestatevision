@@ -2,7 +2,7 @@
 import { getPageBySlug } from "./utils/get-page-by-slug";
 
 import LangRedirect from "../../components/LangRedirect";
-import Profile from "./articles/page";
+import Profile from "./(data)/articles/page";
 import { sectionRenderer } from "./utils/section-renderer";
 
 export default async function RootRoute({
@@ -14,7 +14,7 @@ export default async function RootRoute({
     const page = await getPageBySlug("home", params.lang);
     if (page.error && page.error.status == 401)
       throw new Error(
-        "Missing or invalid credentials. Have you created an access token using the Strapi admin panel? http://localhost:1337/admin/"
+        "Missing or invalid credentials. Have you created an access token using the Strapi admin panel? http://localhost:1337/admin/",
       );
 
     if (page.data.length == 0 && params.lang !== "en") return <LangRedirect />;

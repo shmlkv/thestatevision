@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { fetchAPI } from "../../../utils/fetch-api";
-import Post from "../../../views/post";
+import { fetchAPI } from "../../../../utils/fetch-api";
+import Post from "../../../../views/post";
 
 async function getPostBySlug(slug: string) {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
@@ -75,7 +75,7 @@ export async function generateStaticParams() {
     {
       populate: ["category"],
     },
-    options
+    options,
   );
 
   return articleResponse.data.map(
@@ -86,6 +86,9 @@ export async function generateStaticParams() {
           slug: string;
         };
       };
-    }) => ({ slug: article.attributes.slug, category: article.attributes.slug })
+    }) => ({
+      slug: article.attributes.slug,
+      category: article.attributes.slug,
+    }),
   );
 }

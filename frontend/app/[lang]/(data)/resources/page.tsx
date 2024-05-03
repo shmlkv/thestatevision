@@ -1,12 +1,12 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-import { fetchAPI } from "../utils/fetch-api";
+import { fetchAPI } from "../../utils/fetch-api";
 
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import Loader from "../../../components/Loader";
-import ResourcesList from "../views/resources-list";
+import Loader from "../../../../components/Loader";
+import ResourcesList from "../../views/resources-list";
 
 interface Meta {
   pagination: {

@@ -37,7 +37,6 @@ export default function Post({ data }: { data: Article }) {
   const { title, description, publishedAt, cover, authorsBio } =
     data.attributes;
   const imageUrl = getStrapiMedia(cover.data?.attributes.url);
-
   return (
     <article className="space-y-8 dark:bg-black dark:text-gray-50">
       {imageUrl && (
@@ -58,7 +57,7 @@ export default function Post({ data }: { data: Article }) {
           </div>
 
           {data.attributes.blocks.map((section: any, index: number) =>
-            postRenderer(section, index)
+            postRenderer(section, index),
           )}
         </div>
       </div>
