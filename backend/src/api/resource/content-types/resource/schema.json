@@ -22,6 +22,12 @@
     },
     "text": {
       "type": "text"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author",
+      "inversedBy": "resource"
     }
   }
 }
