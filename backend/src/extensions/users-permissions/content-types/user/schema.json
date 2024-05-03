@@ -66,9 +66,9 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "resource": {
+    "resources": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::resource.resource",
       "mappedBy": "author"
     }

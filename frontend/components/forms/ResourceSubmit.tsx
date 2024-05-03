@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
 
+import { useRouter } from "next/navigation";
 export default function ResourceSubmit({ user }: any) {
   const { toast } = useToast();
   const token = process.env.NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN;
@@ -14,7 +15,8 @@ export default function ResourceSubmit({ user }: any) {
   const [email, setEmail] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  const router = useRouter();
+  console.log({ user });
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [text, setText] = useState("");
@@ -38,7 +40,7 @@ export default function ResourceSubmit({ user }: any) {
       title: "Submitting...",
       description: "Your resource is being submitted.",
     });
-
+    console.log({ id: user?.data?.id });
     fetch(getStrapiURL() + "/api/resources", {
       method: "POST",
       headers: {
@@ -50,7 +52,7 @@ export default function ResourceSubmit({ user }: any) {
           title,
           URL: url,
           text,
-          author: user.id,
+          author: user?.data?.id,
         },
       }),
     }).then((res) => {
@@ -67,10 +69,11 @@ export default function ResourceSubmit({ user }: any) {
       setUrl("");
       setText("");
       toast({
-
+        title: "✅ Success",
 
         description: "Resource submitted successfully.",
       });
+      router.push("/resources");
     });
   }
 
