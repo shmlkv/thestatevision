@@ -1,3 +1,5 @@
+const lsKey = "plateEditorContent";
+
 import { withProps } from "@udecode/cn";
 import { createAlignPlugin } from "@udecode/plate-alignment";
 import { createAutoformatPlugin } from "@udecode/plate-autoformat";
@@ -366,17 +368,25 @@ export function PlateEditor() {
       ),
     },
   );
-
+  const handleChange = (newValue: any) => {
+    const content = JSON.stringify(newValue);
+    console.log({ content });
+    localStorage.setItem(lsKey, content);
+  };
   return (
     <TooltipProvider>
       <DndProvider backend={HTML5Backend}>
         <CommentsProvider users={{}} myUserId="1">
-          <Plate plugins={plugins} initialValue={initialValue}>
+          <Plate
+            plugins={plugins}
+            initialValue={initialValue}
+            onChange={handleChange}
+          >
             <FixedToolbar>
               <FixedToolbarButtons />
             </FixedToolbar>
 
-            <Editor />
+            <Editor onChange={handleChange} />
 
             <FloatingToolbar>
               <FloatingToolbarButtons />
