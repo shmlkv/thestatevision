@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 
 export const SideBarLink = ({ href, Icon, text, path, blank }: any) => {
-  console.log({ href, path });
   return (
     <Button
       variant={

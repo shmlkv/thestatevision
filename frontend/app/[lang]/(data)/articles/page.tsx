@@ -71,7 +71,14 @@ export default function Articles() {
   return (
     <div>
       {/* <PageHeader heading="All articles" text="~" /> */}
-      <div className="flex items-center justify-between border border-gray-200 dark:border-gray-700 p-4 rounded">
+      <div
+        style={
+          {
+            "-webkit-backdrop-filter": "blur(2px)",
+          } as React.CSSProperties
+        }
+        className="flex items-center justify-between border border-gray-200 dark:border-gray-700 p-4 rounded"
+      >
         <div>
           <h1 className="text-xl font-bold dark:text-white">
             Become an author

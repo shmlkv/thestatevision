@@ -13,15 +13,10 @@ function Sidebar() {
     <div className="space-y-6 py-4 z-1000 text-white max-w-[200px] w-full">
       <div className="space-y-1">
         <SideBarLink href="./" Icon={Home} text="Home" path={path} />
-        <SideBarLink
-          href="dashboard"
-          Icon={CgProfile}
-          text="Profile"
-          path={path}
-        />
+        <SideBarLink href="dashboard" Icon={CgProfile} text="You" path={path} />
       </div>
       <div className="space-y-1">
-        <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight">
+        <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight text-black dark:text-white">
           Library
         </h2>
         <div className="space-y-1">
@@ -53,7 +48,7 @@ function Sidebar() {
         </div>
       </div>
       <div className="space-y-1">
-        <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight">
+        <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight text-black dark:text-white">
           Links
         </h2>
         <div className="space-y-1">
@@ -78,7 +73,7 @@ function Sidebar() {
           <SideBarLink
             href="https://t.me/thestate_community"
             Icon={FaTelegram}
-            text="Community"
+            text="Community Hall"
             path={path}
             blank
           />
