@@ -43,6 +43,7 @@ export function ProfileForm({
   readonly data: ProfileFormProps;
   readonly className?: string;
 }) {
+  console.log({ data });
   if (!data) return null;
   const updateUserWithId = updateProfileAction.bind(null, data.id);
 
