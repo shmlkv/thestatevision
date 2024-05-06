@@ -50,7 +50,7 @@ export default function Post({ data }: { data: Article }) {
       )}
       <div className="">
         <div className="">
-          {!data.attributes.isPublic && (
+          {data.attributes.isPublic == false && (
             <div className="text-xs  inline font-semibold dark:text-gray-400 bg-gray-200 dark:bg-gray-800 p-2 rounded-lg">
               Draft: Under review...
             </div>
