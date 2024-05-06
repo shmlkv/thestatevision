@@ -97,7 +97,7 @@ export default function ArticleSubmit({ user }: any) {
       </h1>
       <div className="max-w-[1200px] m-auto space-y-4">
         <div className="">
-          <div className="text-sm font-semibold text-slate-400 pb-2">
+          <div className="text-sm font-semibold dark:text-slate-400 pb-2">
             Title *
           </div>
           <Input
@@ -109,7 +109,7 @@ export default function ArticleSubmit({ user }: any) {
           />
         </div>
         <div className="">
-          <div className="text-sm font-semibold text-slate-400 pb-2">
+          <div className="text-sm font-semibold dark:text-slate-400 pb-2">
             Description *
           </div>
           <Input
@@ -121,15 +121,15 @@ export default function ArticleSubmit({ user }: any) {
           />
         </div>
         <div className="">
-          <div className="text-sm font-semibold text-slate-400 pb-2">
+          <div className="text-sm font-semibold dark:text-slate-400 pb-2">
             Body *
           </div>
-          <div className="border rounded border-gray-100 dark:border-gray-500">
+          <div className="border rounded border-gray-500">
             <PlateEditor />
           </div>
         </div>
         <Button
-          variant={"secondary"}
+          // variant={"primary"}
           onClick={() => {
             const saved = localStorage.getItem(lsKey);
             const data = saved ? JSON.parse(saved) : [];
@@ -142,7 +142,7 @@ export default function ArticleSubmit({ user }: any) {
             // });
           }}
         >
-          Submit
+          Publish
         </Button>
       </div>
     </div>

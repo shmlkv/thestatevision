@@ -26,7 +26,7 @@ export function FixedToolbarButtons() {
   const readOnly = useEditorReadOnly();
 
   return (
-    <div className="w-full bg-black overflow-hidden">
+    <div className="w-full dark:bg-black overflow-hidden">
       <div
         className="flex flex-wrap"
         style={{

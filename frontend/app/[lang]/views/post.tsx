@@ -7,6 +7,7 @@ interface Article {
     title: string;
     description: string;
     slug: string;
+    isPublic: boolean;
     cover: {
       data: {
         attributes: {
@@ -37,6 +38,7 @@ export default function Post({ data }: { data: Article }) {
   const { title, description, publishedAt, cover, authorsBio } =
     data.attributes;
   const imageUrl = getStrapiMedia(cover.data?.attributes.url);
+  console.log({ data });
   return (
     <article className="space-y-8 dark:bg-black dark:text-gray-50">
       {imageUrl && (
@@ -48,6 +50,11 @@ export default function Post({ data }: { data: Article }) {
       )}
       <div className="">
         <div className="">
+          {!data.attributes.isPublic && (
+            <div className="text-xs  inline font-semibold dark:text-gray-400 bg-gray-200 dark:bg-gray-800 p-2 rounded-lg">
+              Draft: Under review...
+            </div>
+          )}
           <div className="space-y-6">
             <h1 className="leading-tight text-5xl font-extrabold">{title}</h1>
           </div>

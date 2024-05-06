@@ -44,10 +44,11 @@ export default function ResourcesList({
           return (
             <Link
               href={article.attributes.URL}
+              target="_blank"
               // href={`/articles/${category?.slug}/${article.attributes.slug}`}
               key={article.id}
               className="max-w-full w-full group hover:no-underline focus:no-underline dark:bg-gray-900  rounded-2xl overflow-hidden shadow-lg"
-            >
+            >local
               <div className="p-6 space-y-2 relative">
                 <ArrowUpRight className="absolute top-6 right-6" />
                 <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">

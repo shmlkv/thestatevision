@@ -75,7 +75,7 @@ export default async function Navbar({
       <div className="container flex items-center justify-between h-16 mx-auto">
         <div className="relative">
           <Logo src={logoUrl}>
-            {logoText && <h2 className="text-2xl font-bold">FUTURESTATE</h2>}
+            {logoText && <h2 className="text-2xl font-bold">FUTURE STATE</h2>}
           </Logo>
         </div>
 
