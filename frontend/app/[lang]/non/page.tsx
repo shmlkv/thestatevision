@@ -3,5 +3,5 @@ export default async function Profile({
 }: {
   params: { lang: string };
 }) {
-  return <div>Hello! Nothing here yet.</div>;
+  return <div>Hello! Nothing here yet...</div>;
 }
