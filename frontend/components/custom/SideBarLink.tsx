@@ -5,7 +5,7 @@ export const SideBarLink = ({ href, Icon, text, path, blank }: any) => {
   return (
     <Button
       variant={
-        (href == "./" && path == "/en") || "/en/" + href == path
+        (href == "./" && path == "/en") || path.includes("/en/" + href)
           ? "secondary"
           : "ghost"
       }

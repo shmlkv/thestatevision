@@ -1,4 +1,7 @@
+"use client";
 import Link from "next/link";
+
+import { usePathname } from "next/navigation";
 import { LogoutButton } from "../../../components/custom/LogoutButton";
 
 export default function DashboardLayout({
@@ -6,6 +9,7 @@ export default function DashboardLayout({
 }: {
   readonly children: React.ReactNode;
 }) {
+  const path = usePathname();
   return (
     <div className=" flex  w-full h-full max-h-screen justify-between">
       <div className="flex h-full max-h-screen flex-col gap-2">
@@ -29,11 +33,18 @@ export default function DashboardLayout({
             </Link> */}
 
             <Link
-              className="flex items-center  gap-3 rounded-lg px-3 py-2  transition-all hover:text-gray-900 dark:text-white dark:hover:text-gray-50"
+              className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${path == "/en/dashboard" ? "hover:text-gray-900 dark:text-white text-black" : "text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"} dark:hover:text-gray-50`}
               href="/dashboard"
             >
               <UsersIcon className="h-4 w-4 " />
               Account
+            </Link>
+            <Link
+              className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-all ${path.includes("dashboard/settings") ? "hover:text-gray-900 dark:text-white" : "text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"} dark:hover:text-gray-50`}
+              href="/dashboard/settings"
+            >
+              <UsersIcon className="h-4 w-4 " />
+              Settings
             </Link>
             <LogoutButton />
           </nav>

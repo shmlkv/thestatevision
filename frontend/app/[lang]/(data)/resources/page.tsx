@@ -70,7 +70,14 @@ export default function Resources() {
 
   return (
     <div>
-      <div className="flex items-center justify-between border border-gray-200 dark:border-gray-700 p-4 rounded">
+      <div
+        style={
+          {
+            "-webkit-backdrop-filter": "blur(2px)",
+          } as React.CSSProperties
+        }
+        className="flex items-center justify-between border border-gray-200 dark:border-gray-700 p-4 rounded"
+      >
         <div>
           <h1 className="text-xl font-bold dark:text-white">Submit a link</h1>
           <p className="text-gray-600 dark:text-gray-400">

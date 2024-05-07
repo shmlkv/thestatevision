@@ -8,7 +8,6 @@ import { SideBarLink } from "./SideBarLink";
 
 function Sidebar() {
   const path = usePathname();
-  console.log({ path });
   return (
     <div className="space-y-6 py-4 z-1000 text-white max-w-[200px] w-full">
       <div className="space-y-1">

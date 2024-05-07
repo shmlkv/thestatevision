@@ -26,6 +26,7 @@ export default async function RootRoute({
         return Profile();
       });
   } catch (error: any) {
-    window.alert("Missing or invalid credentials");
+    console.log({ error });
+    // window.alert("Missing or invalid credentials");
   }
 }
