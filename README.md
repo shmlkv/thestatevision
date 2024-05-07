@@ -157,27 +157,3 @@ You can find the setting inside the `package.json` file inside the root folder.
 
 Go to the root folder and install the package, `yarn`
 You can start both apps by running `yarn dev`.
-
-## Conclusion
-
-Hope you find this starter useful, it is a bare-bone example to help you get started quickly.
-
-Would love to hear what you will build using it.
-
-If you find bugs or have suggestions feel free to create issues.
-
-Thank you and stay awesome.
-
-# Contributing to the Next.js Corporate Starter repository
-
-We're so excited that you're thinking about contributing to the Next.js Corporate Starter open-source project! If you're unsure or afraid of anything, just know that you can't mess up here. Any contribution is valuable, and we appreciate you!
-
-This document aims to provide all the necessary information for you to make a contribution.
-
-## Prerequisites
-
-Before you can contribute, you need to have the following installed:
-
-- Node.js and npm: You can download these from the official [Node.js website](https://nodejs.org/).
-- Git: You can find installation instructions for Git in the official [Git Book](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-
