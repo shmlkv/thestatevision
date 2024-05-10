@@ -38,8 +38,9 @@ export default function ResourcesList({
 }) {
   console.log({ articles });
   return (
-    <section className="container p-6 mx-auto space-y-6 sm:space-y-12">
-      <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <section className=" w-full">
+      <div className="flex flex-col space-y-4 mt-4">
+        {/* <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"> */}
         {articles.map((article) => {
           return (
             <Link
@@ -48,7 +49,7 @@ export default function ResourcesList({
               // href={`/articles/${category?.slug}/${article.attributes.slug}`}
               key={article.id}
               className="max-w-full w-full group hover:no-underline focus:no-underline dark:bg-gray-900  rounded-2xl overflow-hidden shadow-lg"
-            >local
+            >
               <div className="p-6 space-y-2 relative">
                 <ArrowUpRight className="absolute top-6 right-6" />
                 <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
