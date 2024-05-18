@@ -35,7 +35,10 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL(`/login`, request.url));
     }
   }
-
+  console.log({ pathname });
+  if (pathname.includes("/forget-password")) {
+    console.log({ pathname });
+  }
   // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
   // // If you have one
   if (

@@ -4,8 +4,10 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 
 import {
+  forgotPasswordService,
   loginUserService,
   registerUserService,
+  resetPasswordService,
 } from "../services/auth-service";
 
 const config = {
@@ -65,7 +67,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
   }
 
   cookies().set("jwt", responseData.jwt, config);
-  
+
   redirect("/");
 }
 
@@ -124,6 +126,62 @@ export async function loginUserAction(prevState: any, formData: FormData) {
 
   cookies().set("jwt", responseData.jwt);
   redirect("/");
+}
+export async function forgotPasswordAction(prevState: any, formData: FormData) {
+  const email = formData.get("identifier") as string;
+  console.log({ formData });
+  console.log({ email });
+  if (!email) {
+    return {
+      ...prevState,
+      message: "Please enter your email address",
+    };
+  }
+  const response = await forgotPasswordService(email);
+
+  if (!response) {
+    return {
+      ...prevState,
+      message: "Ops! Something went wrong. Please try again.",
+    };
+  }
+
+  if (response.error) {
+    return {
+      ...prevState,
+      message: response.error,
+    };
+  }
+}
+export async function resetPasswordAction(prevState: any, formData: FormData) {
+  const password = formData.get("password") as string;
+  const code = formData.get("code") as string;
+  if (!password || !code) {
+    return {
+      ...prevState,
+      message: "Please enter your password and code",
+    };
+  }
+
+  const response = await resetPasswordService(formData);
+  console.log({ response });
+  if (!response) {
+    return {
+      ...prevState,
+      message: "Ops! Something went wrong. Please try again.",
+    };
+  }
+
+  if (response.error) {
+    return {
+      ...prevState,
+      message: response.error,
+    };
+  }
+  if (response.jwt) {
+    cookies().set("jwt", response.jwt, config);
+    redirect("/login");
+  }
 }
 
 export async function logoutAction() {
