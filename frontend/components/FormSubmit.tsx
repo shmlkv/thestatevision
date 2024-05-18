@@ -1,5 +1,5 @@
-// "use client";
-import { addEmailContact } from "@/data/services/add-email-contact";
+"use client";
+import { addEmailContact } from "@/data/actions/email-actions";
 import { useState } from "react";
 import { getStrapiURL } from "../app/[lang]/utils/api-helpers";
 
@@ -37,7 +37,6 @@ export default function FormSubmit({
       body: JSON.stringify({ data: { email } }),
     });
 
-    addEmailContact(email);
     if (!res.ok) {
       setErrorMessage("Email failed to submit.");
       return;
@@ -45,6 +44,8 @@ export default function FormSubmit({
     setErrorMessage("");
     setSuccessMessage("Email successfully submitted!");
     setEmail("");
+    addEmailContact(email);
+    return;
   }
 
   return (
