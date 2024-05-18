@@ -2,15 +2,13 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 
 export const SideBarLink = ({ href, Icon, text, path, blank }: any) => {
+  const isSelected =
+    (href == "./" && path == "/en") || path.includes("/en/" + href);
   return (
     <Button
-      variant={
-        (href == "./" && path == "/en") || path.includes("/en/" + href)
-          ? "secondary"
-          : "ghost"
-      }
+      variant={isSelected ? "secondary" : "ghost"}
       size="sm"
-      className="w-full justify-start"
+      className={`w-full justify-start  transition-all duration-150 ease-in-out ${isSelected ? "" : "hover:bg-gray-100 dark:hover:bg-gray-800"}`}
       asChild
     >
       <Link

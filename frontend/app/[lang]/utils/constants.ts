@@ -1,4 +1,4 @@
 export const FALLBACK_SEO = {
-  title: "TheState.Vision",
+  title: "Future State",
   description: "a self-publishing platform around Network States movement.",
 };
