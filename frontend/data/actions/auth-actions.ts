@@ -138,7 +138,6 @@ export async function forgotPasswordAction(prevState: any, formData: FormData) {
     };
   }
   const response = await forgotPasswordService(email);
-
   if (!response) {
     return {
       ...prevState,
@@ -152,6 +151,10 @@ export async function forgotPasswordAction(prevState: any, formData: FormData) {
       message: response.error,
     };
   }
+  return {
+    ...prevState,
+    message: "Check your email for the reset code link",
+  };
 }
 export async function resetPasswordAction(prevState: any, formData: FormData) {
   const password = formData.get("password") as string;

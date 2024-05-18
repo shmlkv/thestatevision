@@ -41,7 +41,6 @@ export function ForgetPasswordForm({ code }: { code: string }) {
   const formActions = code ? resetPasswordAction : forgotPasswordAction;
 
   const [formState, formAction] = useFormState(formActions, INITIAL_STATE);
-  console.log({ formState });
   if (code)
     return (
       <div className="w-full max-w-md">
@@ -120,11 +119,12 @@ export function ForgetPasswordForm({ code }: { code: string }) {
                 text="Reset Password"
                 loadingText="Loading..."
               />
+              <div className="">{formState.message}</div>
               <StrapiErrors error={formState?.strapiErrors} />
             </CardFooter>
           </Card>
           <div className="mt-4 text-center text-sm">
-            Remember password?
+            Remember your password?
             <Link className="underline ml-2" href="login">
               Log in
             </Link>
