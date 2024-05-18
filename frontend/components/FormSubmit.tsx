@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { addEmailContact } from "@/data/services/add-email-contact";
 import { useState } from "react";
 import { getStrapiURL } from "../app/[lang]/utils/api-helpers";
@@ -36,8 +36,8 @@ export default function FormSubmit({
       },
       body: JSON.stringify({ data: { email } }),
     });
-    const contactRes = await addEmailContact(email);
-    console.log({ contactRes });
+
+    addEmailContact(email);
     if (!res.ok) {
       setErrorMessage("Email failed to submit.");
       return;

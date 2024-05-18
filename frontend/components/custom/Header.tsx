@@ -39,9 +39,6 @@ interface HeaderProps {
 
 export async function Header() {
   const user = await getUserMeLoader();
-  console.log(user);
-
-  // const { logoText, ctaButton } = data;
   return (
     <div className="flex items-center justify-between px-4 py-3 bg-white shadow-md dark:bg-gray-800">
       {/* <Logo text={logoText.text} /> */}
