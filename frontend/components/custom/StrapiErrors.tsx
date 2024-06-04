@@ -11,6 +11,8 @@ export function StrapiErrors({
 }) {
   if (!error?.message) return null;
   return (
-    <div className="text-pink-500 text-md italic py-2">{error.message}</div>
+    <div className="text-pink-500 text-md italic py-2 mt-2">
+      {error.message}
+    </div>
   );
 }

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 
+import { tgNotification } from "@/data/services/tg-notification";
 import { useState } from "react";
 import { plateToMarkdown } from "slate-mark";
 import { PlateEditor } from "../Editor";
@@ -83,11 +84,14 @@ export default function ArticleSubmit({ user }: any) {
         });
         return;
       }
-      router.push("/articles/undefined/" + slug);
+      const articleURL = "/articles/undefined/" + slug;
       toast({
         title: "✅ Success",
         description: "Resource submitted successfully.",
       });
+      const messageTextMarkdown = `*New article submited*\n\n${title}\n\n${description}\n\n[View article](https://futurestate.tv/en${articleURL})`;
+      tgNotification(messageTextMarkdown);
+      router.push(articleURL);
     });
   }
   return (
