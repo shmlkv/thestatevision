@@ -70,14 +70,14 @@ function Sidebar() {
             path={path}
           />
           <SideBarLink
-            href="https://t.me/thestate_community"
+            href="https://t.me/futurestate_hall"
             Icon={FaTelegram}
             text="Community Hall"
             path={path}
             blank
           />
           <SideBarLink
-            href="https://twitter.com/thestate_me"
+            href="https://twitter.com/futurestate_tv"
             Icon={FaTwitter}
             text="Twitter"
             path={path}
