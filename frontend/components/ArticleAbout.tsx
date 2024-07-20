@@ -39,6 +39,7 @@ export default function ArticleAbout({
   };
   author: any;
 }) {
+  console.log({ cat: params.category, author });
   return (
     <div
       className="p-4 rounded-lg min-h-[365px] relative"
@@ -52,7 +53,17 @@ export default function ArticleAbout({
 
       <div>
         <div className="flex flex-wrap items-end py-2 space-y-2 dark:border-gray-400 ">
-          {categories.map((category: Category) => {
+          <Link
+            href={`/articles/${params.category}`}
+            className={selectedFilter("", params.category)}
+          >
+            {
+              categories.find(
+                (category) => category.attributes.slug === params.category,
+              )?.attributes.name
+            }
+          </Link>
+          {/* {categories.map((category: Category) => {
             if (category.attributes.articles.data.length === 0) return null;
             return (
               <Link
@@ -65,10 +76,10 @@ export default function ArticleAbout({
                 {category.attributes.name}
               </Link>
             );
-          })}
-          <Link href={"/articles"} className={selectedFilter("", "filter")}>
+          })} */}
+          {/* <Link href={"/articles"} className={selectedFilter("", "filter")}>
             All
-          </Link>
+          </Link> */}
         </div>
 
         {articles && articles.length ? (
