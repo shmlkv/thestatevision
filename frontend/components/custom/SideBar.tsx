@@ -3,6 +3,7 @@ import { CalendarCheck2, Home, LibraryBig, Text } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { CgProfile } from "react-icons/cg";
 import { FaDonate, FaTelegram, FaTwitter } from "react-icons/fa";
+import { GiCongress } from "react-icons/gi";
 import { PiSealQuestionFill } from "react-icons/pi";
 import { SideBarLink } from "./SideBarLink";
 
@@ -43,6 +44,14 @@ function Sidebar() {
             Icon={CalendarCheck2}
             text="Events"
             path={path}
+          />
+          <SideBarLink
+            href="https://congress.futurestate.tv"
+            Icon={GiCongress}
+            text="CONGRESS"
+            path={path}
+            blank
+            isNew
           />
         </div>
       </div>
