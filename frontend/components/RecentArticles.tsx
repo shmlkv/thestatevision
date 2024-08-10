@@ -1,9 +1,10 @@
 "use client";
+import { useCallback, useEffect, useState } from "react";
+
 import { formatDate } from "@/app/[lang]/utils/api-helpers";
 import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Loader from "./Loader";
 
 interface Meta {
@@ -14,9 +15,9 @@ interface Meta {
   };
 }
 
-const RecentArticles = ({ limit = 3 }: { limit: number }) => {
+export default function RecentArticles({ limit = 3 }: { limit: number }) {
   const [meta, setMeta] = useState<Meta | undefined>();
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
 
   const fetchData = useCallback(async (start: number, limit: number) => {
@@ -24,28 +25,21 @@ const RecentArticles = ({ limit = 3 }: { limit: number }) => {
     try {
       const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
       const path = `/articles`;
-      const urlParamsObject = useMemo(
-        () => ({
-          sort: { createdAt: "desc" },
-          populate: {
-            cover: { fields: ["url"] },
-            category: { populate: "*" },
-            authorsBio: {
-              populate: "*",
-            },
+      const urlParamsObject = {
+        sort: { createdAt: "desc" },
+        populate: {
+          cover: { fields: ["url"] },
+          category: { populate: "*" },
+          authorsBio: {
+            populate: "*",
           },
-          pagination: {
-            start,
-            limit,
-          },
-        }),
-        [start, limit],
-      );
-
-      const options = useMemo(
-        () => ({ headers: { Authorization: `Bearer ${token}` } }),
-        [token],
-      );
+        },
+        pagination: {
+          start: start,
+          limit: limit,
+        },
+      };
+      const options = { headers: { Authorization: `Bearer ${token}` } };
       const responseData = await fetchAPI(path, urlParamsObject, options);
 
       if (start === 0) {
@@ -62,69 +56,74 @@ const RecentArticles = ({ limit = 3 }: { limit: number }) => {
     }
   }, []);
 
+  function loadMorePosts(): void {
+    const nextPosts = meta!.pagination.start + meta!.pagination.limit;
+    fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
+  }
+
   useEffect(() => {
     fetchData(0, Number(limit));
-  }, [fetchData, limit]);
+  }, [fetchData]);
 
   if (isLoading) return <Loader />;
 
   return (
     <div>
+      {/* Recent Articles */}
       <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {data.map((article: any) => (
-          <MemoizedArticleItem article={article} key={article.id} />
-        ))}
+        {data.map((article: any) => {
+          if (article.attributes.isPublic === false) return null;
+          const imageUrl = article.attributes.cover.data?.attributes.url;
+          const avatarUrl =
+            article.attributes.authorsBio.data?.attributes.avatar.data
+              ?.attributes.url;
+          const category = article.attributes.category.data?.attributes;
+          return (
+            <Link
+              href={`/articles/${category?.slug}/${article.attributes.slug}`}
+              key={article.id}
+              className="max-w-full w-full group hover:no-underline focus:no-underline dark:bg-gray-900  rounded-2xl overflow-hidden shadow-lg"
+            >
+              {imageUrl && (
+                <Image
+                  alt="presentation"
+                  width="240"
+                  height="240"
+                  className="object-cover w-full h-44 "
+                  src={imageUrl}
+                />
+              )}
+              <div className="p-6 space-y-2 relative">
+                {avatarUrl && (
+                  <Image
+                    alt="avatar"
+                    width="80"
+                    height="80"
+                    src={avatarUrl}
+                    className="rounded-full h-16 w-16 object-cover absolute -top-8 right-4"
+                  />
+                )}
+
+                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                  {article.attributes.title}
+                </h3>
+
+                <div className="flex justify-between items-center">
+                  <span className="text-xs dark:text-gray-400">
+                    {formatDate(article.attributes.publishedAt)}
+                  </span>
+                  {/* {authorsBio && (
+                      <span className="text-xs dark:text-gray-400">
+                        {authorsBio.name}
+                      </span>
+                    )} */}
+                </div>
+                <p className="py-4">{article.attributes.description}</p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
-};
-
-const ArticleItem = ({ article }: { article: any }) => {
-  if (article.attributes.isPublic === false) return null;
-
-  const imageUrl = article.attributes.cover.data?.attributes.url;
-  const avatarUrl =
-    article.attributes.authorsBio.data?.attributes.avatar.data?.attributes.url;
-  const category = article.attributes.category.data?.attributes;
-
-  return (
-    <Link
-      href={`/articles/${category?.slug}/${article.attributes.slug}`}
-      className="max-w-full w-full group hover:no-underline focus:no-underline dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg"
-    >
-      {imageUrl && (
-        <Image
-          alt="presentation"
-          width="240"
-          height="240"
-          className="object-cover w-full h-44"
-          src={imageUrl}
-        />
-      )}
-      <div className="p-6 space-y-2 relative">
-        {avatarUrl && (
-          <Image
-            alt="avatar"
-            width="80"
-            height="80"
-            src={avatarUrl}
-            className="rounded-full h-16 w-16 object-cover absolute -top-8 right-4"
-          />
-        )}
-        <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
-          {article.attributes.title}
-        </h3>
-        <div className="flex justify-between items-center">
-          <span className="text-xs dark:text-gray-400">
-            {formatDate(article.attributes.publishedAt)}
-          </span>
-        </div>
-        <p className="py-4">{article.attributes.description}</p>
-      </div>
-    </Link>
-  );
-};
-
-const MemoizedArticleItem = React.memo(ArticleItem);
-
-export default RecentArticles;
+}

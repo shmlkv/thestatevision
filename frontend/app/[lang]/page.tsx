@@ -1,6 +1,5 @@
 "use client";
 import LangRedirect from "../../components/LangRedirect";
-import Profile from "./(data)/articles/page";
 import { getPageBySlug } from "./utils/get-page-by-slug";
 import { sectionRenderer } from "./utils/section-renderer";
 
@@ -27,7 +26,7 @@ export default async function RootRoute({
         {contentSections.map((section: any, index: number) =>
           sectionRenderer(section, index),
         )}
-        <Profile />
+        {/* <Profile /> */}
       </>
     );
   } catch (error: any) {
