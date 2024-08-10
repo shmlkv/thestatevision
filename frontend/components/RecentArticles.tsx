@@ -119,7 +119,7 @@ const ArticleItem = ({ article }: { article: any }) => {
             {formatDate(article.attributes.publishedAt)}
           </span>
         </div>
-        {/* <p className="py-4">{article.attributes.description}</p> */}
+        <p className="py-4">{article.attributes.description}</p>
       </div>
     </Link>
   );
