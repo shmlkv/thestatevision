@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_recent_articles",
+  "info": {
+    "displayName": "Recent Articles",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "limit": {
+      "type": "integer"
+    }
+  }
+}
