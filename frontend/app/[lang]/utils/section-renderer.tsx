@@ -1,4 +1,3 @@
-import RecentArticles from "@/components/RecentArticles";
 import { Button } from "@/components/ui/button";
 import Email from "../../../components/Email";
 import Features from "../../../components/Features";
@@ -36,8 +35,8 @@ export function sectionRenderer(section: any, index: number) {
           <RichText key={index} data={{ body: section.content }} />
         </div>
       );
-    case "sections.recent-articles":
-      return <RecentArticles limit={section.limit} />;
+    // case "sections.recent-articles":
+    //   return <RecentArticles limit={section.limit} />;
     default:
       return null;
   }
