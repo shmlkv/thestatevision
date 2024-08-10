@@ -37,7 +37,7 @@ export function sectionRenderer(section: any, index: number) {
         </div>
       );
     case "sections.recent-articles":
-      return <RecentArticles />;
+      return <RecentArticles limit={section.limit} />;
     default:
       return null;
   }

@@ -1,6 +1,7 @@
 "use server";
 import { useCallback, useEffect, useState } from "react";
 
+import { formatDate } from "@/app/[lang]/utils/api-helpers";
 import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
 import { getStrapiMedia } from "@/data/utils";
 import Image from "next/image";
@@ -69,12 +70,11 @@ export default async function RecentArticlesSlider() {
 
   return (
     <div>
-      Recent Articles
-      {/* slider */}
+      {/* Recent Articles */}
       <div>
         {data
-          .filter((article) => article.attributes.isPublic !== false)
-          .map((article) => {
+          .filter((article: any) => article.attributes.isPublic !== false)
+          .map((article: any) => {
             const imageUrl = getStrapiMedia(
               article.attributes.cover.data?.attributes.url,
             );
