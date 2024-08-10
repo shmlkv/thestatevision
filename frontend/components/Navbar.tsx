@@ -1,11 +1,8 @@
 "use client";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "./Logo";
-import Sidebar from "./custom/SideBar";
 
 interface NavLink {
   id: number;
@@ -97,8 +94,6 @@ export default async function Navbar({
             )}
           </ul>
         </div> */}
-
-
       </div>
     </div>
   );

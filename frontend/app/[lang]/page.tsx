@@ -13,13 +13,14 @@ export default async function RootRoute({
   try {
     const page = await getPageBySlug("home", params.lang);
     if (page.error && page.error.status == 401)
-      throw new Error(
+      console.log(
         "Missing or invalid credentials. Have you created an access token using the Strapi admin panel? http://localhost:1337/admin/",
       );
 
     if (page.data.length == 0 && params.lang !== "en") return <LangRedirect />;
     if (page.data.length === 0) return null;
     const contentSections = page.data[0].attributes.contentSections;
+    console.log({ text: page.data[0].attributes });
     return contentSections
       .map((section: any, index: number) => sectionRenderer(section, index))
       .concat(() => {

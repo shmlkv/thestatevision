@@ -39,7 +39,6 @@ export default function ArticleAbout({
   };
   author: any;
 }) {
-  console.log({ cat: params.category, author });
   return (
     <div
       className="p-4 rounded-lg min-h-[365px] relative"

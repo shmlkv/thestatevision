@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 
-export const SideBarLink = ({ href, Icon, text, path, blank }: any) => {
+export const SideBarLink = ({
+  href,
+  Icon,
+  text,
+  path,
+  blank,
+  isNew = false,
+}: any) => {
   const isSelected =
     (href == "./" && path == "/en") || path.includes("/en/" + href);
   return (

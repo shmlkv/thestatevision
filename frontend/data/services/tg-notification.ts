@@ -2,7 +2,6 @@ const TOKEN = "7257281148:AAFDVFu17qj8bfIXY8cS8hJoQOZOH_oJyrs"; //process.env.NE
 const CHAT_ID = "-1002248294805"; //process.env.NEXT_PUBLIC_TELEGRAM_BOT_CHAT_ID;
 
 export async function tgNotification(message: string) {
-  console.log({ message });
   const result = await fetch(
     "https://api.telegram.org/bot" + TOKEN + "/sendMessage",
     {
