@@ -5,7 +5,6 @@ import { formatDate } from "@/app/[lang]/utils/api-helpers";
 import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
 import Image from "next/image";
 import Link from "next/link";
-import Loader from "./Loader";
 
 interface Meta {
   pagination: {
@@ -18,7 +17,7 @@ interface Meta {
 export default function RecentArticles({ limit = 3 }: { limit: number }) {
   const [meta, setMeta] = useState<Meta | undefined>();
   const [data, setData] = useState<any>([]);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
 
   const fetchData = useCallback(async (start: number, limit: number) => {
     setLoading(true);
@@ -65,65 +64,65 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
     fetchData(0, Number(limit));
   }, [fetchData]);
 
-  if (isLoading) return <Loader />;
-
-  return (
-    <div>
-      {/* Recent Articles */}
-      <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {data.map((article: any) => {
-          if (article.attributes.isPublic === false) return null;
-          const imageUrl = article.attributes.cover.data?.attributes.url;
-          const avatarUrl =
-            article.attributes.authorsBio.data?.attributes.avatar.data
-              ?.attributes.url;
-          const category = article.attributes.category.data?.attributes;
-          return (
-            <Link
-              href={`/articles/${category?.slug}/${article.attributes.slug}`}
-              key={article.id}
-              className="max-w-full w-full group hover:no-underline focus:no-underline dark:bg-gray-900  rounded-2xl overflow-hidden shadow-lg"
-            >
-              {imageUrl && (
-                <Image
-                  alt="presentation"
-                  width="240"
-                  height="240"
-                  className="object-cover w-full h-44 "
-                  src={imageUrl}
-                />
-              )}
-              <div className="p-6 space-y-2 relative">
-                {avatarUrl && (
+  if (isLoading) "";
+  else
+    return (
+      <div>
+        {/* Recent Articles */}
+        <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {data.map((article: any) => {
+            if (article.attributes.isPublic === false) return null;
+            const imageUrl = article.attributes.cover.data?.attributes.url;
+            const avatarUrl =
+              article.attributes.authorsBio.data?.attributes.avatar.data
+                ?.attributes.url;
+            const category = article.attributes.category.data?.attributes;
+            return (
+              <Link
+                href={`/articles/${category?.slug}/${article.attributes.slug}`}
+                key={article.id}
+                className="max-w-full w-full group hover:no-underline focus:no-underline dark:bg-gray-900  rounded-2xl overflow-hidden shadow-lg"
+              >
+                {imageUrl && (
                   <Image
-                    alt="avatar"
-                    width="80"
-                    height="80"
-                    src={avatarUrl}
-                    className="rounded-full h-16 w-16 object-cover absolute -top-8 right-4"
+                    alt="presentation"
+                    width="240"
+                    height="240"
+                    className="object-cover w-full h-44 "
+                    src={imageUrl}
                   />
                 )}
+                <div className="p-6 space-y-2 relative">
+                  {avatarUrl && (
+                    <Image
+                      alt="avatar"
+                      width="80"
+                      height="80"
+                      src={avatarUrl}
+                      className="rounded-full h-16 w-16 object-cover absolute -top-8 right-4"
+                    />
+                  )}
 
-                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
-                  {article.attributes.title}
-                </h3>
+                  <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+                    {article.attributes.title}
+                  </h3>
 
-                <div className="flex justify-between items-center">
-                  <span className="text-xs dark:text-gray-400">
-                    {formatDate(article.attributes.publishedAt)}
-                  </span>
-                  {/* {authorsBio && (
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs dark:text-gray-400">
+                      {formatDate(article.attributes.publishedAt)}
+                    </span>
+                    {/* {authorsBio && (
                       <span className="text-xs dark:text-gray-400">
                         {authorsBio.name}
                       </span>
                     )} */}
+                  </div>
+                  <p className="py-4">{article.attributes.description}</p>
                 </div>
-                <p className="py-4">{article.attributes.description}</p>
-              </div>
-            </Link>
-          );
-        })}
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
 }
