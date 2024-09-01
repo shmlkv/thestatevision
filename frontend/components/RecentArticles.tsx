@@ -62,7 +62,7 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
 
   useEffect(() => {
     fetchData(0, Number(limit));
-  }, [fetchData]);
+  }, []);
 
   if (isLoading) "";
   else

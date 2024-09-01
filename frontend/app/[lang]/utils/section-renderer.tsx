@@ -31,7 +31,7 @@ export function sectionRenderer(section: any, index: number) {
       );
     case "sections.rich-text":
       return (
-        <div className="max-w-[800px] flex flex-col justify-center p-3 mx-auto sm:py-3 lg:py-6 lg:flex-row lg:justify-between">
+        <div className="max-w-[800px] flex flex-col justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
           <RichText key={index} data={{ body: section.content }} />
         </div>
       );
