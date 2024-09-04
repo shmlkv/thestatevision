@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_bento_grids",
+  "info": {
+    "displayName": "Bento grid",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    }
+  }
+}

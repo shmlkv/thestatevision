@@ -5,6 +5,7 @@ import Hero from "../../../components/Hero";
 import Pricing from "../../../components/Pricing";
 import RichText from "../../../components/RichText";
 import Testimonials from "../../../components/Testimonials";
+import { CustomBentoGrid } from "@/components/CustomBentoGrid";
 
 export function sectionRenderer(section: any, index: number) {
   console.log({ section });
@@ -37,6 +38,8 @@ export function sectionRenderer(section: any, index: number) {
       );
     case "sections.recent-articles":
       return ""; //<RecentArticles limit={section.limit} />;
+      case 'sections.bento-grid':
+        return <CustomBentoGrid data={section} key={index} />;
     default:
       return null;
   }
