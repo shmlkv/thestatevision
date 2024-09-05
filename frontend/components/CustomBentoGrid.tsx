@@ -7,6 +7,15 @@ import {
 } from "@radix-ui/react-icons";
 
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+interface Features {
+  Icon: string;
+  name: string;
+  description: string;
+  href: string;
+  cta: string;
+  background: any;
+  className: string;
+}
 
 const features = [
   {
@@ -59,11 +68,13 @@ const features = [
 
 export async function CustomBentoGrid({ data }: any) {
   const currentData = data || features;
+  console.log({ currentData });
   return (
     <BentoGrid className="lg:grid-rows-3">
-      {currentData.map((feature: any) => (
-        <BentoCard key={feature.name} {...feature} />
-      ))}
+      {currentData &&
+        currentData.map((feature: any) => (
+          <BentoCard key={feature.name} {...feature} />
+        ))}
     </BentoGrid>
   );
 }

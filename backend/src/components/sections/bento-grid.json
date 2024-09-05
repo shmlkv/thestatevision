@@ -1,29 +1,17 @@
 {
   "collectionName": "components_sections_bento_grids",
   "info": {
-    "displayName": "Bento grid",
+    "displayName": "Bento Grid",
     "icon": "apps",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "icon": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "href": {
-      "type": "string"
-    },
-    "cta": {
-      "type": "string"
-    },
-    "className": {
-      "type": "string"
+    "BentoGridItem": {
+      "displayName": "BentoGridItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.bento-grid-item"
     }
   }
 }

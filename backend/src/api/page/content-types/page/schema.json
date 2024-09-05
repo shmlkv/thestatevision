@@ -39,7 +39,8 @@
         "sections.lead-form",
         "sections.features",
         "sections.heading",
-        "sections.recent-articles"
+        "sections.recent-articles",
+        "sections.bento-grid"
       ],
       "pluginOptions": {
         "i18n": {

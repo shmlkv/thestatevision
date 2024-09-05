@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_bento_grid_items",
+  "info": {
+    "displayName": "BentoGridItem",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "CTA": {
+      "type": "string"
+    },
+    "background": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    }
+  }
+}
