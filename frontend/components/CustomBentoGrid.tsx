@@ -67,8 +67,9 @@ const features = [
 ];
 
 export async function CustomBentoGrid({ data }: any) {
-  const currentData = data || features;
-  console.log({ currentData });
+  console.log({ data });
+  const currentData = data.items;
+  if (!currentData) return null;
   return (
     <BentoGrid className="lg:grid-rows-3">
       {currentData &&
