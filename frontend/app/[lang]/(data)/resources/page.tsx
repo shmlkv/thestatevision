@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { fetchAPI } from "../../utils/fetch-api";
 
+import PageHeader from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
@@ -70,6 +71,7 @@ export default function Resources() {
 
   return (
     <div>
+      <PageHeader heading="All resources" text="~" />
       <div
         style={
           {

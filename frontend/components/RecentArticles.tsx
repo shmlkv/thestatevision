@@ -3,9 +3,9 @@ import { useCallback, useEffect, useState } from "react";
 
 import { formatDate } from "@/app/[lang]/utils/api-helpers";
 import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
+import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import Link from "next/link";
-
 interface Meta {
   pagination: {
     start: number;
@@ -64,11 +64,11 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
     fetchData(0, Number(limit));
   }, []);
 
-  if (isLoading) "";
+  if (isLoading) return <div>Loading...</div>;
   else
     return (
-      <div>
-        {/* Recent Articles */}
+      <div className=" p-8">
+        <PageHeader heading="Recent Articles" moreLink="/articles" />
         <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {data.map((article: any) => {
             if (article.attributes.isPublic === false) return null;

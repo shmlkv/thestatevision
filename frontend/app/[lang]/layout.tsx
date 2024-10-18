@@ -4,7 +4,6 @@ import "./globals.css";
 import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
-import Sidebar from "@/components/custom/SideBar";
 import { Toaster } from "@/components/ui/toaster";
 import { IBM_Plex_Sans } from "next/font/google";
 import Footer from "../../components/Footer";
@@ -119,8 +118,9 @@ export default async function RootLayout({
           user={user}
         />
 
-        <div className="container z-10 relative flex flex-col lg:flex-row lg:space-x-4">
-          <Sidebar />
+        <div className="container z-10 relative flex flex-row lg:flex-row lg:space-x-4">
+          {/* <Sidebar /> */}
+          {/* <Header /> */}
           <main className="dark:text-white min-h-[700px] w-full">
             {children}
           </main>

@@ -1,3 +1,4 @@
+import PageHeader from "@/components/PageHeader";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { formatDate } from "../utils/api-helpers";
@@ -36,9 +37,10 @@ export default function ResourcesList({
   data: Resource[];
   children?: React.ReactNode;
 }) {
-  console.log({ articles });
+  // console.log({ articles });
   return (
     <section className=" w-full">
+
       <div className="flex flex-col space-y-4 mt-4">
         {/* <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"> */}
         {articles.map((article) => {

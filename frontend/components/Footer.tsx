@@ -54,13 +54,13 @@ function CategoryLink({ attributes }: CategoryLink) {
 function RenderSocialIcon({ social }: { social: string | undefined }) {
   switch (social) {
     case "WEBSITE":
-      return <CgWebsite />;
+      return <CgWebsite size={42} />;
     case "TWITTER":
-      return <AiFillTwitterCircle />;
+      return <AiFillTwitterCircle size={42} color="#1DA1F2" />;
     case "YOUTUBE":
-      return <AiFillYoutube />;
+      return <AiFillYoutube size={42} color="red" />;
     case "DISCORD":
-      return <FaDiscord />;
+      return <FaDiscord size={42} color="#5865F2" />;
     default:
       return null;
   }

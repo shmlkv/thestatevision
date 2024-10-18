@@ -10,7 +10,7 @@ export const SideBarLink = ({
   isNew = false,
 }: any) => {
   const isSelected =
-    (href == "./" && path == "/en") || path.includes("/en/" + href);
+    (href == "./" && path == "/en") || path?.includes("/en/" + href);
   return (
     <Button
       variant={isSelected ? "secondary" : "ghost"}

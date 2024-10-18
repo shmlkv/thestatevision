@@ -1,14 +1,20 @@
 "use client";
+import { CalendarCheck2, LibraryBig, Text } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { GiCongress } from "react-icons/gi";
 import Logo from "./Logo";
+import { SideBarLink } from "./custom/SideBarLink";
 
 interface NavLink {
   id: number;
   url: string;
   newTab: boolean;
   text: string;
+  href: string;
+  Icon: any;
+  blank: boolean;
+  isNew: boolean;
 }
 
 interface MobileNavLink extends NavLink {
@@ -16,15 +22,14 @@ interface MobileNavLink extends NavLink {
 }
 
 export function NavLink({ url, text }: NavLink) {
-  const path = usePathname();
-
+  // const path = usePathname();
+  // ${path === url && "dark:text-violet-400 dark:border-violet-400"
+  // }}
   return (
     <li className="flex">
       <Link
         href={url}
-        className={`flex items-center mx-4 -mb-1 border-b-2 dark:border-transparent ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
-        }}`}
+        className={`flex items-center mx-4 -mb-1 border-b-2 dark:border-transparent`}
       >
         {text}
       </Link>
@@ -33,7 +38,9 @@ export function NavLink({ url, text }: NavLink) {
 }
 
 function MobileNavLink({ url, text, closeMenu }: MobileNavLink) {
-  const path = usePathname();
+  // const path = usePathname();
+  // ${path === url && "dark:text-violet-400 dark:border-violet-400"
+  // }}
   const handleClick = () => {
     closeMenu();
   };
@@ -42,9 +49,7 @@ function MobileNavLink({ url, text, closeMenu }: MobileNavLink) {
       <Link
         href={url}
         onClick={handleClick}
-        className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-900 ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
-        }}`}
+        className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-900 `}
       >
         {text}
       </Link>
@@ -52,8 +57,8 @@ function MobileNavLink({ url, text, closeMenu }: MobileNavLink) {
   );
 }
 
-export default async function Navbar({
-  links,
+export default function Navbar({
+  // links,
   logoUrl,
   logoText,
   user,
@@ -67,6 +72,32 @@ export default async function Navbar({
   const closeMenu = () => {
     setMobileMenuOpen(false);
   };
+
+  const links = [
+    {
+      href: "articles",
+      Icon: Text,
+      text: "Articles",
+    },
+    {
+      href: "resources",
+      Icon: LibraryBig,
+      text: "Resources",
+    },
+    {
+      href: "events",
+      Icon: CalendarCheck2,
+      text: "Events",
+    },
+    {
+      href: "https://congress.futurestate.tv",
+      Icon: GiCongress,
+      text: "CONGRESS",
+      
+
+      isBlank: true,
+    },
+  ];
   return (
     <div className="py-4 z-10 relative  dark:text-gray-100">
       <div className="container flex items-center justify-between h-16 mx-auto">
@@ -76,13 +107,13 @@ export default async function Navbar({
           </Logo>
         </div>
 
-        {/* <div className="items-center flex-shrink-0 hidden lg:flex">
+        <div className="items-center flex-shrink-0 hidden lg:flex">
           <ul className="items-stretch hidden space-x-3 lg:flex">
-            {links.map((item: NavLink) => (
-              <NavLink key={item.id} {...item} />
+            {links.map((item) => (
+              <SideBarLink key={item.href} {...item} />
             ))}
-            {user.ok ? (
-              <NavLink
+            {/* {user.ok ? (
+              <SideBarLink
                 newTab={false}
                 id={14}
                 url="/en/dashboard"
@@ -91,9 +122,9 @@ export default async function Navbar({
             ) : (
               <></>
               // <NavLink newTab={false} id={14} url="/en/login" text="Login" />
-            )}
+            )} */}
           </ul>
-        </div> */}
+        </div>
       </div>
     </div>
   );
