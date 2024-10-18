@@ -41,7 +41,7 @@ export default function Cooking({ data, title }: { data: any; title: string }) {
             Icon={item.Icon}
             title={item.title}
             description={item.description}
-            link={item.href}
+            href={item.href}
           />
         ))}
       </div>
