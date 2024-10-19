@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { FC } from "react";
 
 interface EmailProps {
@@ -37,12 +35,28 @@ const Email: FC<{ data: EmailProps }> = ({ data }) => {
               type="email"
               placeholder={data.emailPlaceholder}
               required
-              className="w-full"
+              className="w-full px-[14px] py-8 font-xl font-bold rounded-lg border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 ease-in-out bg-white text-gray-800 placeholder-gray-400 shadow-sm hover:shadow-md"
             />
-
-            <Button type="submit" variant="outline" className={cn("w-full")}>
-              {data.submitButton.text} Subscribe to newsletter
-            </Button>
+            <button
+              type="submit"
+              className="group bg-gradient-to-br w-full from-gray-900 px-4 py-4 to-gray-800 justify-between flex flex-row rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 hover:from-gray-800 hover:to-gray-700 relative overflow-hidden block flex items-center text-purple-400 flex justify-between group-hover:text-purple-300 font-semibold transition-all duration-300 ease-in-out transform group-hover:translate-x-2"
+            >
+              <div className="">
+                {data.submitButton.text} Subscribe to newsletter
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
           </form>
         </div>
       </div>

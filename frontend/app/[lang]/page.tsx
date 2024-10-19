@@ -1,5 +1,14 @@
 "use client";
 import RichText from "@/components/RichText";
+import { Tv } from "lucide-react";
+import {
+  BiBookBookmark,
+  BiGlobe,
+  BiLike,
+  BiMap,
+  BiSolidTrafficBarrier,
+  BiSolidWine,
+} from "react-icons/bi";
 import { GiCongress } from "react-icons/gi";
 import LangRedirect from "../../components/LangRedirect";
 import RecentArticles from "../../components/RecentArticles";
@@ -43,7 +52,7 @@ export default async function RootRoute({
           description:
             "Explaining and propagandizing this madness since [2022]",
           href: "https://lu.ma/FUTURE_STATE",
-          Icon: GiCongress,
+          Icon: Tv,
           buttonText: "Read more",
         },
         {
@@ -51,7 +60,7 @@ export default async function RootRoute({
           title: "HITCHHIKER'S GUIDE TO THE FUTURE/STATE",
           description: "our fellowship program for nation-building",
           href: "https://congress.futurestate.tv",
-          Icon: GiCongress,
+          Icon: BiLike,
           buttonText: "Touch the water with your foot",
         },
         {
@@ -59,7 +68,7 @@ export default async function RootRoute({
           title: "GLOBAL EVENTS",
           description: "We are building a global network of events. Worldwide",
           href: "https://lu.ma/FUTURE_STATE",
-          Icon: GiCongress,
+          Icon: BiGlobe,
           buttonText: "Join us",
         },
         {
@@ -67,7 +76,7 @@ export default async function RootRoute({
           title: "VENTURE BUILDER BATCH",
           description: "cause someone's gotta build this",
           href: "https://www.bubbleswitch.me",
-          Icon: GiCongress,
+          Icon: BiSolidTrafficBarrier,
           buttonText: "Apply now",
         },
       ],
@@ -80,21 +89,21 @@ export default async function RootRoute({
           id: 1,
           title: "Write an article",
           description: "Be part of our collective research",
-          Icon: GiCongress,
+          Icon: BiBookBookmark,
           buttonText: "Are you brave enough?",
         },
         {
           id: 2,
           title: "Attend or sponsor our next event",
           description: "Host an event in your city",
-          Icon: GiCongress,
+          Icon: BiMap,
           buttonText: "Push future forward",
         },
         {
           id: 3,
           title: "Join our community",
           description: "Help us build a better future",
-          Icon: GiCongress,
+          Icon: BiSolidWine,
         },
       ],
     };
