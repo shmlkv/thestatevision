@@ -5,13 +5,13 @@ import RichText from "@/components/RichText";
 import { Tv } from "lucide-react";
 import {
   BiBookBookmark,
+  BiBuildingHouse,
+  BiCommentAdd,
   BiGlobe,
   BiLike,
   BiMap,
   BiSolidTrafficBarrier,
-  BiSolidWine,
 } from "react-icons/bi";
-import { GiCongress } from "react-icons/gi";
 import LangRedirect from "../../components/LangRedirect";
 import { getPageBySlug } from "./utils/get-page-by-slug";
 import { sectionRenderer } from "./utils/section-renderer";
@@ -44,7 +44,7 @@ export default async function RootRoute({
           description:
             "Bringing science fiction into science facts. Now in Cyprus",
           href: "https://congress.futurestate.tv",
-          Icon: GiCongress,
+          Icon: BiBuildingHouse,
           buttonText: "Join nearest physical event",
           newTab: true,
         },
@@ -110,7 +110,7 @@ export default async function RootRoute({
           title: "Join our community",
           description: "Help us build a better future",
           href: "https://t.me/futurestate_hall",
-          Icon: BiSolidWine,
+          Icon: BiCommentAdd,
           newTab: true,
           buttonText: "Telegram",
         },

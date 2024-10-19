@@ -1,5 +1,5 @@
 import { FiArrowRight } from "react-icons/fi";
 
-export default function ArrowRight() {
-  return <FiArrowRight className="w-10 h-10" />;
+export default function ArrowRight({ width = "10" }: { width?: string }) {
+  return <FiArrowRight className={`w-${width} h-${width}`} />;
 }
