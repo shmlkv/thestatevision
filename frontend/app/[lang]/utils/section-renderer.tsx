@@ -10,7 +10,7 @@ import Testimonials from "../../../components/Testimonials";
 import Cooking from "../../../components/mainpage/Cooking";
 
 export function sectionRenderer(section: any, index?: number) {
-  // console.log({ section });
+  console.log({ section });
   switch (section.__component) {
     case "sections.hero":
       return <Hero key={index} data={section} />;

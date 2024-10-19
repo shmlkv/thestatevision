@@ -1,4 +1,7 @@
-import FormSubmit from "./FormSubmit";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import { FC } from "react";
 
 interface EmailProps {
   id: string;
@@ -11,19 +14,40 @@ interface EmailProps {
   };
 }
 
-export default function Email({ data }: { data: EmailProps }) {
+const Email: FC<{ data: EmailProps }> = ({ data }) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Handle form submission logic here
+  };
+
   return (
-    <section className="z-10 py-6 dark:bg-black dark:text-gray-50">
-      <div className="container mx-auto flex flex-col justify-center p-4 space-y-8 md:p-10 lg:space-y-0 lg:space-x-12 lg:justify-between lg:flex-row">
-        <div className="flex flex-col space-y-4 text-center lg:text-left">
-          <h1 className="text-5xl font-bold leading-none">{data.title}</h1>
-          <p className="text-lg">{data.description}</p>
+    <section className="bg-background text-foreground py-12 md:py-16 lg:py-20">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col lg:flex-row justify-between items-center">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              {data.title}
+            </h2>
+            <p className="text-muted-foreground max-w-[600px]">
+              {data.description}
+            </p>
+          </div>
+          <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4">
+            <Input
+              type="email"
+              placeholder={data.emailPlaceholder}
+              required
+              className="w-full"
+            />
+
+            <Button type="submit" variant="outline" className={cn("w-full")}>
+              {data.submitButton.text} Subscribe to newsletter
+            </Button>
+          </form>
         </div>
-        <FormSubmit
-          placeholder={data.emailPlaceholder}
-          text={data.submitButton.text}
-        />
       </div>
     </section>
   );
-}
+};
+
+export default Email;

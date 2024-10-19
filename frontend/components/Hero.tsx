@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { getStrapiMedia } from "../app/[lang]/utils/api-helpers";
 import { renderButtonStyle } from "../app/[lang]/utils/render-button-style";
-import HighlightedText from "./HighlightedText";
 
 interface Button {
   id: string;
@@ -45,19 +44,19 @@ export default function Hero({ data }: HeroProps) {
         }}
       >
         <div className="flex flex-row justify-center text-center rounded-lg lg:text-left">
-          <HighlightedText
+          {/* <HighlightedText
             text={data.title}
             tag="h1"
             className="text-4xl font-bold leading-none sm:text-4xl mb-8"
             color="dark:text-violet-400"
-          />
+          /> */}
 
-          <HighlightedText
+          {/* <HighlightedText
             text={data.description}
             tag="p"
             className="tmt-6 mb-8 text-lg sm:mb-12"
             color="dark:text-violet-400"
-          />
+          /> */}
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             {data.buttons.map((button: Button, index: number) => (
               <Link

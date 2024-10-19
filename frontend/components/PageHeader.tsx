@@ -18,7 +18,7 @@ export default function PageHeader({
       {/* see more */}
       {moreLink && (
         <a href="#" className="text-blue-500 hover:underline font-bold">
-          See more &gt;
+          See more →
         </a>
       )}
     </div>

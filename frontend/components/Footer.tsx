@@ -100,14 +100,14 @@ export default function Footer({
             </ul>
           </div>
 
-          <div className="col-span-6 text-center md:text-left md:col-span-3">
+          {/* <div className="col-span-6 text-center md:text-left md:col-span-3">
             <p className="pb-1 text-lg text-left font-bold">Menu</p>
             <ul>
               {menuLinks.map((link: FooterLink) => (
                 <FooterLink key={link.id} {...link} />
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className="grid justify-center pt-6 lg:justify-between">
           <div className="flex">

@@ -1,42 +1,61 @@
 "use client";
 
-import { GiAlienStare } from "react-icons/gi";
-
 function FeatureCard({
   Icon,
   title,
   description,
   href,
+  buttonText,
 }: {
   Icon: any;
   title: string;
   description: string;
   href: string;
+  buttonText: string;
 }) {
-  console.log({ Icon });
   return (
-    <div
-      className="bg-purple-50 p-6 rounded-lg shadow-sm flex flex-col justify-between"
-      key={href}
+    <a
+      href={href}
+      className="group bg-gradient-to-br from-gray-900 to-gray-800 p-6 justify-between flex flex-col rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 hover:from-gray-800 hover:to-gray-700 relative overflow-hidden block"
     >
       <div className="">
-        {Icon && (
-          <div className="mb-4 text-3xl">
-            {Icon} <GiAlienStare />
-          </div>
-        )}
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-600 mb-4">{description}</p>
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"></div>
+        <div className="absolute inset-0 rounded-xl overflow-hidden">
+          <div className="absolute inset-0 shadow-[inset_0_2px_8px_rgba(255,255,255,0.1)] group-hover:shadow-[inset_0_2px_12px_rgba(255,255,255,0.2)] transition-shadow duration-300 ease-in-out"></div>
+        </div>
+        <div className="relative z-10">
+          {Icon && (
+            <div className="mb-4 text-4xl text-purple-400 group-hover:text-purple-300 transition-colors duration-300 ease-in-out">
+              <Icon />
+            </div>
+          )}
+          <h3 className="text-xl font-bold mb-2 text-white group-hover:text-purple-200 transition-colors duration-300 ease-in-out">
+            {title}
+          </h3>
+          <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300 ease-in-out">
+            {description}
+          </p>
+        </div>
       </div>
-      <a href={href} className="text-blue-500 hover:underline font-bold">
-        {/* {link} */}
-        Learn more →
-      </a>
-    </div>
+      <div className="flex items-center text-purple-400 group-hover:text-purple-300 font-semibold transition-all duration-300 ease-in-out transform group-hover:translate-x-2">
+        {buttonText ? buttonText : "Learn more"}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fillRule="evenodd"
+            d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </div>
+    </a>
   );
 }
 export default function Cooking({ data, title }: { data: any; title: string }) {
-  console.log({ data });
   return (
     <div className=" p-8">
       {title && <h3 className="text-2xl font-bold mb-4">{title}</h3>}
@@ -48,6 +67,7 @@ export default function Cooking({ data, title }: { data: any; title: string }) {
             title={item.title}
             description={item.description}
             href={item.href}
+            buttonText={item.buttonText}
           />
         ))}
       </div>

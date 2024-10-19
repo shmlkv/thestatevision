@@ -4,22 +4,13 @@ import "./globals.css";
 import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 
+import { fontIBMPlexSans } from "@/components/fonts";
 import { Toaster } from "@/components/ui/toaster";
-import { IBM_Plex_Sans } from "next/font/google";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import { getUserMeLoader } from "../../data/services/get-user-me-loader";
 import { i18n } from "../../i18n-config";
 import { FALLBACK_SEO } from "./utils/constants";
-
-const font = IBM_Plex_Sans({
-  weight: "400",
-  subsets: ["latin-ext", "cyrillic"],
-});
-const fontBold = IBM_Plex_Sans({
-  weight: "700",
-  subsets: ["latin-ext", "cyrillic"],
-});
 
 async function getGlobal(lang: string): Promise<any> {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
@@ -92,7 +83,7 @@ export default async function RootLayout({
   const user = await getUserMeLoader();
 
   return (
-    <html lang={params.lang} className={`  ${font.className}`}>
+    <html lang={params.lang} className={` ${fontIBMPlexSans.className}`}>
       <body>
         <div
           id="stars-container"

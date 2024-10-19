@@ -1,7 +1,8 @@
 "use client";
-import RecentArticles from "@/components/RecentArticles";
+import RichText from "@/components/RichText";
 import { GiCongress } from "react-icons/gi";
 import LangRedirect from "../../components/LangRedirect";
+import RecentArticles from "../../components/RecentArticles";
 import { getPageBySlug } from "./utils/get-page-by-slug";
 import { sectionRenderer } from "./utils/section-renderer";
 
@@ -30,17 +31,20 @@ export default async function RootRoute({
         {
           id: 1,
           title: "FUTURE STATE CONGRESS",
-          description: "bringing science fiction into science facts",
+          description:
+            "Bringing science fiction into science facts. Now in Cyprus",
           href: "https://congress.futurestate.tv",
           Icon: GiCongress,
+          buttonText: "Join nearest physical event",
         },
         {
           id: 2,
           title: "FUTURESTATE.TV MEDIA",
           description:
-            "explaining and propagandizing this madness since [2022]",
+            "Explaining and propagandizing this madness since [2022]",
           href: "https://lu.ma/FUTURE_STATE",
           Icon: GiCongress,
+          buttonText: "Read more",
         },
         {
           id: 3,
@@ -48,13 +52,15 @@ export default async function RootRoute({
           description: "our fellowship program for nation-building",
           href: "https://congress.futurestate.tv",
           Icon: GiCongress,
+          buttonText: "Touch the water with your foot",
         },
         {
           id: 4,
           title: "GLOBAL EVENTS",
-          description: "bringing the future to your city",
+          description: "We are building a global network of events. Worldwide",
           href: "https://lu.ma/FUTURE_STATE",
           Icon: GiCongress,
+          buttonText: "Join us",
         },
         {
           id: 5,
@@ -62,6 +68,7 @@ export default async function RootRoute({
           description: "cause someone's gotta build this",
           href: "https://www.bubbleswitch.me",
           Icon: GiCongress,
+          buttonText: "Apply now",
         },
       ],
     };
@@ -72,19 +79,21 @@ export default async function RootRoute({
         {
           id: 1,
           title: "Write an article",
-          description: "Write an article",
+          description: "Be part of our collective research",
           Icon: GiCongress,
+          buttonText: "Are you brave enough?",
         },
         {
           id: 2,
-          title: "attend or sponsor our next event",
-          description: "Write an article",
+          title: "Attend or sponsor our next event",
+          description: "Host an event in your city",
           Icon: GiCongress,
+          buttonText: "Push future forward",
         },
         {
           id: 3,
-          title: "join our collective research",
-          description: "Write an article",
+          title: "Join our community",
+          description: "Help us build a better future",
           Icon: GiCongress,
         },
       ],
@@ -99,19 +108,82 @@ export default async function RootRoute({
           "We are a group of technologists, scientists, and policy wonks who believe that the way we govern ourselves is broken. We are building a new kind of government that is more responsive, more transparent, and more accountable to the people. We are a non-partisan, non-profit organization that is dedicated to the public good.",
       },
     };
+    const textContent = `# How we want to change the world?
+
+Infinite game theory suggest that the best way to win is to focus on the game, not the other players.
+Freedom is being attacked from all sides, and we need to fight back.
+
+    `;
+    const libertarianArticle = {
+      __component: "sections.rich-text",
+      content: `# The Future of Governance: A Libertarian Perspective
+
+In an era of rapid technological advancement and global interconnectedness, traditional forms of governance are becoming increasingly obsolete. The future demands a radical reimagining of how societies organize themselves, and libertarian principles offer a compelling vision for this new world.
+
+## Decentralization and Individual Sovereignty
+
+As blockchain technology and decentralized autonomous organizations (DAOs) mature, we're witnessing the emergence of governance systems that prioritize individual sovereignty. These systems allow for:
+
+- Direct participation in decision-making processes
+- Transparent and immutable record-keeping
+- Reduction of centralized power structures
+
+## AI-Assisted Policy Making
+
+Artificial intelligence will play a crucial role in future governance by:
+
+- Analyzing vast amounts of data to inform policy decisions
+- Providing unbiased assessments of proposed legislation
+- Optimizing resource allocation based on real-time needs
+
+## Smart Contracts and Voluntary Associations
+
+The concept of smart contracts will revolutionize how individuals interact with each other and with governance structures:
+
+- Automated enforcement of agreements without the need for centralized authority
+- Voluntary associations based on shared values and goals
+- Reduction of bureaucracy and administrative overhead
+
+## Personal Data Sovereignty
+
+In the future, individuals will have complete control over their personal data:
+
+- Cryptographic protection of sensitive information
+- Ability to monetize personal data through secure marketplaces
+- Enhanced privacy and security in digital interactions
+
+The path to this libertarian future is not without challenges, but by embracing technological innovation and prioritizing individual liberty, we can create a world of unprecedented freedom and prosperity.`,
+    };
+    const email = {
+      __component: "sections.lead-form",
+      description:
+        " traditional governance is a joke (but you're not laughing)",
+      emailPlaceholder: "Enter your email",
+      id: 1,
+      location: "main page",
+      submitButton: { id: 1, text: null, type: "primary" },
+      title: "join us if",
+    };
     return (
       <>
-        {sectionRenderer(contentSections[0])}
-        {sectionRenderer(textHeroSection)}
+        <div>
+          {sectionRenderer(contentSections[0])}
+          {sectionRenderer(textHeroSection)}
+        </div>
         {sectionRenderer(cookingSection)}
 
         <RecentArticles limit={3} />
+
+        <div className="max-w-[800px] flex flex-col justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
+          <RichText data={{ body: libertarianArticle.content }} />
+        </div>
         {sectionRenderer(envolveSection)}
-        {contentSections
+        {sectionRenderer(email)}
+        {/* {contentSections
           .slice(1)
           .map((section: any, index: number) =>
             sectionRenderer(section, index + 1),
-          )}
+          )} */}
         {/* <Profile /> */}
       </>
     );
