@@ -1,5 +1,7 @@
 "use client";
 
+import { GiAlienStare } from "react-icons/gi";
+
 function FeatureCard({
   Icon,
   title,
@@ -18,7 +20,11 @@ function FeatureCard({
       key={href}
     >
       <div className="">
-        {Icon && <div className="mb-4 text-3xl">{Icon}</div>}
+        {Icon && (
+          <div className="mb-4 text-3xl">
+            {Icon} <GiAlienStare />
+          </div>
+        )}
         <h3 className="text-xl font-bold mb-2">{title}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
       </div>

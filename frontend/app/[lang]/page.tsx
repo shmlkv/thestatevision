@@ -73,16 +73,19 @@ export default async function RootRoute({
           id: 1,
           title: "Write an article",
           description: "Write an article",
+          Icon: GiCongress,
         },
         {
           id: 2,
           title: "attend or sponsor our next event",
           description: "Write an article",
+          Icon: GiCongress,
         },
         {
           id: 3,
           title: "join our collective research",
           description: "Write an article",
+          Icon: GiCongress,
         },
       ],
     };

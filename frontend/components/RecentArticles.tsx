@@ -65,7 +65,12 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
     fetchData(0, Number(limit));
   }, []);
 
-  if (isLoading) return <Loader />;
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader />
+      </div>
+    );
   else
     return (
       <div className=" p-8">
