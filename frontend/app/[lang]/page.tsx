@@ -203,7 +203,7 @@ The path to this libertarian future is not without challenges, but by embracing 
           <h1
             className={`${fontGloock.className} text-center text-5xl font-bold`}
           >
-            Manifesto:
+            Manifesto
           </h1>
           <RichText data={{ body: libertarianArticle.content }} />
         </div>
