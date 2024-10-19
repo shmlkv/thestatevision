@@ -99,7 +99,7 @@ export default function Footer({
     <footer className="py-6 dark:bg-black dark:text-gray-50">
       <div className="container px-6 mx-auto space-y-6 border-top border-solid purple-border">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center ">
-          <div className="pb-6 lg:col-span-2 space-y-4 px-4 ">
+          <div className="pb-0 md:pb-6 lg:col-span-2 space-y-4 px-4 ">
             <Logo src={logoUrl}>
               {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
             </Logo>
@@ -138,20 +138,9 @@ export default function Footer({
                 </Link>
               ))}
             </ul>
-            <button
-              onClick={() => {
-                setTheme(theme === "dark" ? "light" : "dark");
-              }}
-            >
-              {theme === "dark" ? (
-                <SunIcon className="w-8 h-8" />
-              ) : (
-                <MoonIcon className="w-8 h-8" />
-              )}
-            </button>
           </div>
 
-          <div className=" text-center md:text-left ">
+          <div className=" text-center md:text-left ml-4 md:ml-0 ">
             <p className="pb-1 text-lg text-left font-bold">Categories</p>
             <ul>
               {categoryLinks.map((link: CategoryLink) => (
@@ -168,6 +157,18 @@ export default function Footer({
               ))}
             </ul>
           </div> */}
+          <button
+            className=" ml-4 md:ml-2 "
+            onClick={() => {
+              setTheme(theme === "dark" ? "light" : "dark");
+            }}
+          >
+            {theme === "dark" ? (
+              <SunIcon className="w-8 h-8" />
+            ) : (
+              <MoonIcon className="w-8 h-8" />
+            )}
+          </button>
         </div>
 
         {/* <button onClick={toggleDarkMode}>Toggle Dark Mode</button> */}
