@@ -2,7 +2,6 @@
 import { CalendarCheck2, LibraryBig, Text } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { GiCongress } from "react-icons/gi";
 import Logo from "./Logo";
 import { SideBarLink } from "./custom/SideBarLink";
 
@@ -89,14 +88,13 @@ export default function Navbar({
       Icon: CalendarCheck2,
       text: "Events",
     },
-    {
-      href: "https://congress.futurestate.tv",
-      Icon: GiCongress,
-      text: "CONGRESS",
-      
+    // {
+    //   href: "https://congress.futurestate.tv",
+    //   Icon: GiCongress,
+    //   text: "CONGRESS",
 
-      isBlank: true,
-    },
+    //   isBlank: true,
+    // },
   ];
   return (
     <div className="py-4 z-10 relative  dark:text-gray-100">
