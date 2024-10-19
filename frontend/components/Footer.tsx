@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 import { CgWebsite } from "react-icons/cg";
 import { FaDiscord } from "react-icons/fa";
@@ -81,6 +82,21 @@ export default function Footer({
   legalLinks: Array<FooterLink>;
   socialLinks: Array<FooterLink>;
 }) {
+  // Function to set the initial dark mode state
+  function setInitialDarkMode() {
+    if (
+      localStorage.getItem("darkMode") === "dark" ||
+      (!localStorage.getItem("darkMode") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }
+  useEffect(() => {
+    setInitialDarkMode();
+  }, []);
   return (
     <footer className="py-6 mb-12 dark:bg-black dark:text-gray-50">
       <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
@@ -143,6 +159,7 @@ export default function Footer({
             })}
           </div>
         </div>
+        {/* <button onClick={toggleDarkMode}>Toggle Dark Mode</button> */}
       </div>
     </footer>
   );
