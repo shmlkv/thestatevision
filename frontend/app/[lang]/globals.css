@@ -226,20 +226,20 @@ body {
 }
 
 .mainpage hr {
-  border-top: 1px solid rgb(167 139 250);
+  border-top: 1px solid rgb(167 139 250 0.3);
 }
 .dark .mainpage hr {
   border-top: 1px solid rgba(139, 92, 246, 0.22);
 }
 .rich-text hr {
-  border-top: 1px solid rgb(167 139 250);
+  border-top: 1px solid rgb(167 139 250 0.3);
 }
 .dark .rich-text hr {
   border-top: 1px solid rgba(139, 92, 246, 0.22);
 }
 
 .purple-border {
-  border-color: rgb(167 139 250);
+  border-color: rgb(167 139 250 0.3);
 }
 .dark .purple-border {
   border-color: rgba(139, 92, 246, 0.22);
