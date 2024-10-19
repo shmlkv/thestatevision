@@ -1,4 +1,5 @@
 "use client";
+import RecentArticles from "@/components/RecentArticles";
 import RichText from "@/components/RichText";
 import { Tv } from "lucide-react";
 import {
@@ -11,7 +12,6 @@ import {
 } from "react-icons/bi";
 import { GiCongress } from "react-icons/gi";
 import LangRedirect from "../../components/LangRedirect";
-import RecentArticles from "../../components/RecentArticles";
 import { getPageBySlug } from "./utils/get-page-by-slug";
 import { sectionRenderer } from "./utils/section-renderer";
 
@@ -30,7 +30,7 @@ export default async function RootRoute({
     if (page.data.length == 0 && params.lang !== "en") return <LangRedirect />;
     if (page.data.length === 0) return null;
 
-    // console.log({ text: page.data[0].attributes });
+    console.log({ text: page.data[0].attributes });
 
     const contentSections = page.data[0].attributes.contentSections;
     const cookingSection = {
@@ -173,12 +173,13 @@ The path to this libertarian future is not without challenges, but by embracing 
       submitButton: { id: 1, text: null, type: "primary" },
       title: "join us if",
     };
+    // useEffect(() => {
+    console.log("page useEffect");
+    // }, []);
     return (
-      <>
-        <div>
-          {sectionRenderer(contentSections[0])}
-          {sectionRenderer(textHeroSection)}
-        </div>
+      <div className="space-y-8">
+        {sectionRenderer(contentSections[0])}
+        {sectionRenderer(textHeroSection)}
         {sectionRenderer(cookingSection)}
 
         <RecentArticles limit={3} />
@@ -194,7 +195,7 @@ The path to this libertarian future is not without challenges, but by embracing 
             sectionRenderer(section, index + 1),
           )} */}
         {/* <Profile /> */}
-      </>
+      </div>
     );
   } catch (error: any) {
     console.log({ error });

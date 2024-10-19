@@ -61,11 +61,12 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
     fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
   }
   useEffect(() => {
+    console.log("recent articles useEffect");
     fetchData(0, Number(limit));
   }, []);
 
   return (
-    <div className=" p-8">
+    <div className="mt-8">
       <PageHeader heading="Recent Articles" moreLink="/articles" />
       <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((article: any) => {

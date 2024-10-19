@@ -13,7 +13,7 @@ export default function TextHero({
 }) {
   const { title, heading, description } = data;
   return (
-    <div className="p-8">
+    <div className="mt-4">
       {title && (
         <h3 className={`${fontGloock.className} text-2xl font-bold mb-4`}>
           {title}

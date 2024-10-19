@@ -34,11 +34,10 @@ interface HeroProps {
 
 export default function Hero({ data }: HeroProps) {
   const imgUrl = getStrapiMedia(data.picture.data?.attributes.url);
-
   return (
     <section className=" dark:text-gray-100">
       <div
-        className="container flex direction-column justify-center  mx-auto  lg:flex-row lg:justify-between flex-col"
+        className=" flex direction-column justify-center  mx-auto  lg:flex-row lg:justify-between flex-col"
         style={{
           flexDirection: "column",
         }}
@@ -71,14 +70,14 @@ export default function Hero({ data }: HeroProps) {
           </div>
         </div>
 
-        <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 w-full">
+        <div className="flex items-center justify-center pb-6 mt-8 lg:mt-0 w-full">
           {data.picture.data && (
             <Image
               src={imgUrl || ""}
               alt={
                 data.picture.data?.attributes.alternativeText || "none provided"
               }
-              className="object-contain w-full rounded-md"
+              className="object-contain w-full max-h-[500px] rounded-md"
               width={600}
               height={600}
             />

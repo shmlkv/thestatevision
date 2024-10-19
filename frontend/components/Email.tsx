@@ -19,7 +19,7 @@ const Email: FC<{ data: EmailProps }> = ({ data }) => {
   };
 
   return (
-    <section className="bg-background text-foreground py-12 md:py-16 lg:py-20">
+    <section className="py-12 md:py-16 lg:py-20">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col lg:flex-row justify-between items-center">
           <div className="space-y-4">
