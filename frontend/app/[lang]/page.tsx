@@ -1,4 +1,5 @@
 "use client";
+import { fontGloock } from "@/components/fonts";
 import RecentArticles from "@/components/RecentArticles";
 import RichText from "@/components/RichText";
 import { Tv } from "lucide-react";
@@ -125,7 +126,7 @@ Freedom is being attacked from all sides, and we need to fight back.
     `;
     const libertarianArticle = {
       __component: "sections.rich-text",
-      content: `# The Future of Governance: A Libertarian Perspective
+      content: `## The Future of Governance: A Libertarian Perspective
 
 In an era of rapid technological advancement and global interconnectedness, traditional forms of governance are becoming increasingly obsolete. The future demands a radical reimagining of how societies organize themselves, and libertarian principles offer a compelling vision for this new world.
 
@@ -177,14 +178,19 @@ The path to this libertarian future is not without challenges, but by embracing 
     console.log("page useEffect");
     // }, []);
     return (
-      <div className="space-y-8">
+      <div className="space-y-16">
         {sectionRenderer(contentSections[0])}
         {sectionRenderer(textHeroSection)}
         {sectionRenderer(cookingSection)}
 
         <RecentArticles limit={3} />
 
-        <div className="max-w-[800px] flex flex-col justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
+        <div className="max-w-[800px]  justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
+          <h1
+            className={`${fontGloock.className} text-center text-5xl font-bold`}
+          >
+            Manifesto:
+          </h1>
           <RichText data={{ body: libertarianArticle.content }} />
         </div>
         {sectionRenderer(envolveSection)}
