@@ -37,7 +37,7 @@ function FeatureCard({
           </p>
         </div>
       </div>
-      <div className="flex items-center text-purple-400 group-hover:text-purple-300 font-semibold transition-all duration-300 ease-in-out transform group-hover:translate-x-2">
+      <div className="flex items-center text-purple-400 flex justify-between group-hover:text-purple-300 font-semibold transition-all duration-300 ease-in-out transform group-hover:translate-x-2">
         {buttonText ? buttonText : "Learn more"}
         <svg
           xmlns="http://www.w3.org/2000/svg"
