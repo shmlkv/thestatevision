@@ -187,7 +187,7 @@ The path to this libertarian future is not without challenges, but by embracing 
     // }, []);
     return (
       <div className="mainpage space-y-8 flex flex-col border-l px-4 border-left-1 border-r purple-border border-solid ">
-        <hr className="mt-4" />
+        <hr className="mt-8" />
 
         {sectionRenderer(contentSections[0])}
         <hr />

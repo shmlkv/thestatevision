@@ -4,9 +4,8 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
-import { CgWebsite } from "react-icons/cg";
-import { FaDiscord } from "react-icons/fa";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { FaDiscord, FaTelegram, FaYoutube } from "react-icons/fa";
 import Logo from "./Logo";
 
 interface FooterLink {
@@ -57,11 +56,11 @@ function CategoryLink({ attributes }: CategoryLink) {
 function RenderSocialIcon({ social }: { social: string | undefined }) {
   switch (social) {
     case "WEBSITE":
-      return <CgWebsite size={42} />;
+      return <FaTelegram size={36} />;
     case "TWITTER":
       return <AiFillTwitterCircle size={42} color="#1DA1F2" />;
     case "YOUTUBE":
-      return <AiFillYoutube size={42} color="red" />;
+      return <FaYoutube size={42} color="red" />;
     case "DISCORD":
       return <FaDiscord size={42} color="#5865F2" />;
     default:
@@ -122,14 +121,13 @@ export default function Footer({
             </div>
             <div className="flex">
               <span className="mr-2">
-                {/* theme icons */}©{new Date().getFullYear()}
-                <br />
                 Future is bright
+                <br />© {new Date().getFullYear()}
                 <br />
                 All rights reserved
               </span>
             </div>
-            <ul className="flex flex-col">
+            <ul className="flex flex-col mb-4">
               {legalLinks.map((link: FooterLink) => (
                 <Link
                   href={link.url}
@@ -142,12 +140,14 @@ export default function Footer({
             </ul>
             <button
               onClick={() => {
-                console.log({ asd: localStorage.getItem("theme") });
-                console.log(theme);
                 setTheme(theme === "dark" ? "light" : "dark");
               }}
             >
-              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+              {theme === "dark" ? (
+                <SunIcon className="w-8 h-8" />
+              ) : (
+                <MoonIcon className="w-8 h-8" />
+              )}
             </button>
           </div>
 
