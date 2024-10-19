@@ -6,6 +6,7 @@ import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
 import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import Link from "next/link";
+import Loader from "./Loader";
 interface Meta {
   pagination: {
     start: number;
@@ -64,7 +65,7 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
     fetchData(0, Number(limit));
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader />;
   else
     return (
       <div className=" p-8">
