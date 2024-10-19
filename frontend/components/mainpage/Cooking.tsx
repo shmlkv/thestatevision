@@ -1,22 +1,28 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+import ArrowUpRight from "../icons/ArrowUpRight";
+
 function FeatureCard({
   Icon,
   title,
   description,
   href,
   buttonText,
+  newTab,
 }: {
   Icon: any;
   title: string;
   description: string;
   href: string;
   buttonText: string;
+  newTab?: boolean;
 }) {
   return (
     <a
+      target={newTab ? "_blank" : "_self"}
       href={href}
-      className="group bg-gradient-to-br from-gray-900 to-gray-800 p-6 justify-between flex flex-col rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 hover:from-gray-800 hover:to-gray-700 relative overflow-hidden block"
+      className="group bg-gradient-to-br from-gray-900 to-gray-800 p-6  justify-between flex flex-col rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 hover:from-gray-800 hover:to-gray-700 relative overflow-hidden block"
     >
       <div className="">
         <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"></div>
@@ -37,20 +43,9 @@ function FeatureCard({
           </p>
         </div>
       </div>
-      <div className="flex items-center text-purple-400 justify-between group-hover:text-purple-300 font-semibold transition-all duration-300 ease-in-out transform group-hover:translate-x-2">
+      <div className="flex items-center text-purple-400 justify-between group-hover:text-purple-300 font-semibold transition-all duration-300 ease-in-out transform group-hover:translate-y-2">
         {buttonText ? buttonText : "Learn more"}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
+        {newTab ? <ArrowUpRight /> : <ArrowRight />}
       </div>
     </a>
   );
@@ -68,6 +63,7 @@ export default function Cooking({ data, title }: { data: any; title: string }) {
             description={item.description}
             href={item.href}
             buttonText={item.buttonText}
+            newTab={item.newTab}
           />
         ))}
       </div>

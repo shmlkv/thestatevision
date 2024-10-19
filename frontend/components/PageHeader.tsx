@@ -1,3 +1,5 @@
+import ArrowRight from "./icons/ArrowRight";
+
 interface PageHeaderProps {
   heading: string;
   text?: string;
@@ -17,8 +19,11 @@ export default function PageHeader({
       </h2>
       {/* see more */}
       {moreLink && (
-        <a href="#" className="text-purple-400  hover:underline font-semibold">
-          See more →
+        <a
+          href="#"
+          className="text-purple-400 flex items-center hover:underline font-semibold"
+        >
+          See more <ArrowRight />
         </a>
       )}
     </div>

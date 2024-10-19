@@ -99,7 +99,7 @@ export default function Footer({
   }, []);
   return (
     <footer className="py-6 mb-12 dark:bg-black dark:text-gray-50">
-      <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
+      <div className="container px-6 mx-auto space-y-6 border-top border-solid purple-border">
         <div className="grid grid-cols-12">
           <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
             <Logo src={logoUrl}>
@@ -151,7 +151,7 @@ export default function Footer({
                   href={link.url}
                   title={link.text}
                   target={link.newTab ? "_blank" : "_self"}
-                  className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-400 dark:text-gray-900"
+                  className="flex items-center justify-center w-10 h-10 rounded-full "
                 >
                   <RenderSocialIcon social={link.social} />
                 </a>

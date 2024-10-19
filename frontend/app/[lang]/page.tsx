@@ -46,6 +46,7 @@ export default async function RootRoute({
           href: "https://congress.futurestate.tv",
           Icon: GiCongress,
           buttonText: "Join nearest physical event",
+          newTab: true,
         },
         {
           id: 2,
@@ -63,6 +64,7 @@ export default async function RootRoute({
           href: "https://congress.futurestate.tv",
           Icon: BiLike,
           buttonText: "Touch the water with your foot",
+          newTab: true,
         },
         {
           id: 4,
@@ -79,6 +81,7 @@ export default async function RootRoute({
           href: "https://www.bubbleswitch.me",
           Icon: BiSolidTrafficBarrier,
           buttonText: "Apply now",
+          newTab: true,
         },
       ],
     };
@@ -89,6 +92,7 @@ export default async function RootRoute({
         {
           id: 1,
           title: "Write an article",
+          href: "/articles",
           description: "Be part of our collective research",
           Icon: BiBookBookmark,
           buttonText: "Are you brave enough?",
@@ -96,6 +100,7 @@ export default async function RootRoute({
         {
           id: 2,
           title: "Attend or sponsor our next event",
+          href: "/events",
           description: "Host an event in your city",
           Icon: BiMap,
           buttonText: "Push future forward",
@@ -104,7 +109,10 @@ export default async function RootRoute({
           id: 3,
           title: "Join our community",
           description: "Help us build a better future",
+          href: "https://t.me/futurestate_hall",
           Icon: BiSolidWine,
+          newTab: true,
+          buttonText: "Telegram",
         },
       ],
     };
@@ -178,12 +186,17 @@ The path to this libertarian future is not without challenges, but by embracing 
     console.log("page useEffect");
     // }, []);
     return (
-      <div className="space-y-16">
+      <div className="mainpage space-y-8 flex flex-col border-l px-4 border-left-1 border-r purple-border border-solid ">
+        <hr />
         {sectionRenderer(contentSections[0])}
+        <hr />
         {sectionRenderer(textHeroSection)}
+        <hr />
         {sectionRenderer(cookingSection)}
+        <hr />
 
         <RecentArticles limit={3} />
+        <hr />
 
         <div className="max-w-[800px]  justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
           <h1
@@ -193,7 +206,9 @@ The path to this libertarian future is not without challenges, but by embracing 
           </h1>
           <RichText data={{ body: libertarianArticle.content }} />
         </div>
+        <hr />
         {sectionRenderer(envolveSection)}
+        <hr />
         {sectionRenderer(email)}
         {/* {contentSections
           .slice(1)
