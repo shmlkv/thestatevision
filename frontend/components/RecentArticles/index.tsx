@@ -6,7 +6,7 @@ import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
 import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import Link from "next/link";
-import Loader from "./Loader";
+import Loader from "../Loader";
 interface Meta {
   pagination: {
     start: number;
@@ -41,7 +41,7 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
       };
       const options = { headers: { Authorization: `Bearer ${token}` } };
       const responseData = await fetchAPI(path, urlParamsObject, options);
-
+      console.log({ responseData });
       if (start === 0) {
         setData(responseData.data);
       } else {
@@ -62,6 +62,7 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
   }
 
   useEffect(() => {
+    console.log({ isLoading });
     fetchData(0, Number(limit));
   }, []);
 
