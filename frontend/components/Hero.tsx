@@ -70,7 +70,7 @@ export default function Hero({ data }: HeroProps) {
           </div>
         </div>
 
-        <div className="flex items-center justify-center pb-6 mt-8 lg:mt-0 w-full">
+        <div className="flex items-center justify-center mt-8 lg:mt-0 w-full">
           {data.picture.data && (
             <Image
               src={imgUrl || ""}

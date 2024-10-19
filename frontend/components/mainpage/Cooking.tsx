@@ -1,8 +1,7 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import ArrowRight from "../icons/ArrowRight";
 import ArrowUpRight from "../icons/ArrowUpRight";
-
 function FeatureCard({
   Icon,
   title,

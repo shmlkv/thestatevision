@@ -13,9 +13,9 @@ export const SideBarLink = ({
     (href == "./" && path == "/en") || path?.includes("/en/" + href);
   return (
     <Button
-      variant={isSelected ? "secondary" : "ghost"}
+      variant={"outline"}
       size="sm"
-      className={`w-full justify-start  transition-all duration-150 ease-in-out ${isSelected ? "" : "hover:bg-gray-100 dark:hover:bg-gray-800"}`}
+      className={`w-full justify-start  transition-all duration-150 ease-in-out ${isSelected ? "" : " hover:bg-[rgba(0,0,0,.07)] dark:hover:bg-gray-200"}  bg-[rgba(0,0,0,.04)] dark:text-white`}
       asChild
     >
       <Link

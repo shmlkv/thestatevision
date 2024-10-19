@@ -35,7 +35,10 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  html.dark,
+  html[data-theme="dark"],
+  :root.dark,
+  :root[data-theme="dark"] {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
 
@@ -221,9 +224,17 @@ body {
 .react-slideshow-container [aria-label="Next Slide"] {
   margin-right: 1rem;
 }
+
 .mainpage hr {
+  border-top: 1px solid rgb(167 139 250);
+}
+.dark .mainpage hr {
   border-top: 1px solid rgba(139, 92, 246, 0.22);
 }
+
 .purple-border {
+  border-color: rgb(167 139 250);
+}
+.dark .purple-border {
   border-color: rgba(139, 92, 246, 0.22);
 }
