@@ -22,7 +22,7 @@ export default function ArticleCard({ article }: any) {
       href={`/articles/${category?.slug}/${article.attributes.slug}`}
       key={article.id}
     >
-      <div className="max-w-full w-full group hover:no-underline focus:no-underline dark:bg-red bg-slate-800 text-white  rounded-2xl overflow-hidden shadow-lg">
+      <div className="max-w-full w-full group hover:no-underline focus:no-underline border-slate-900 dark:bg-red bg-slate-900 text-white  rounded-2xl overflow-hidden shadow-lg">
         {imageUrl && (
           <Image
             alt="presentation"

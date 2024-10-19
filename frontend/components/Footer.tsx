@@ -96,7 +96,7 @@ export default function Footer({
   }
 
   return (
-    <footer className="py-6 mb-12 dark:bg-black dark:text-gray-50">
+    <footer className="py-6 dark:bg-black dark:text-gray-50">
       <div className="container px-6 mx-auto space-y-6 border-top border-solid purple-border">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center ">
           <div className="pb-6 lg:col-span-2 space-y-4 px-4 ">
@@ -127,7 +127,7 @@ export default function Footer({
                 All rights reserved
               </span>
             </div>
-            <ul className="flex flex-col mb-4">
+            <ul className="flex flex-col pb-8">
               {legalLinks.map((link: FooterLink) => (
                 <Link
                   href={link.url}
