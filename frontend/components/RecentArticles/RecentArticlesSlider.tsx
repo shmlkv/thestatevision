@@ -6,7 +6,7 @@ import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
 import { getStrapiMedia } from "@/data/utils";
 import Image from "next/image";
 import Link from "next/link";
-import Loader from "./Loader";
+import Loader from "../Loader";
 
 interface Meta {
   pagination: {
