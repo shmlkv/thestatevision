@@ -76,7 +76,7 @@ Now in Cyprus, 2-6 Dec 2024`,
           id: 3,
           title: "HITCHHIKER'S GUIDE TO THE FUTURE",
           description:
-            "12-month Hackathon around the world. A fellowship program for radical ideas—and even more radical implementations. Don't forget your towel!",
+            "12-month Hackathon around the world. A fellowship program for radical ideas and implementations",
           href: "https://congress.futurestate.tv",
           Icon: BiLike,
           buttonText: "DON'T PANIC, CLICK HERE",
