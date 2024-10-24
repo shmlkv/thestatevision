@@ -1,7 +1,5 @@
 "use client";
-import { fontGloock } from "@/components/fonts";
 import RecentArticles from "@/components/RecentArticles";
-import RichText from "@/components/RichText";
 import { Tv } from "lucide-react";
 import {
   BiBookBookmark,
@@ -67,7 +65,7 @@ Now in Cyprus, 2-6 Dec 2024`,
         {
           id: 2,
           title: "MEDIA",
-          description: "Trying to understand and explain Network State // 2022",
+          description: `Trying to understand and explain Network State // 2022`,
           href: "https://new.futurestate.tv/en/articles",
           Icon: Tv,
           buttonText: "WARNING: DEEP RABBIT HOLE",
@@ -197,7 +195,7 @@ The path to this libertarian future is not without challenges, but by embracing 
         <hr />
 
         <RecentArticles limit={3} />
-        <hr />
+        {/* <hr />
 
         <div className="max-w-[800px]  justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
           <h1
@@ -206,7 +204,7 @@ The path to this libertarian future is not without challenges, but by embracing 
             Manifesto
           </h1>
           <RichText data={{ body: libertarianArticle.content }} />
-        </div>
+        </div> */}
         <hr />
         {sectionRenderer(envolveSection)}
         <hr />
