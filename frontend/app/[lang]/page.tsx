@@ -10,7 +10,6 @@ import {
   BiGlobe,
   BiLike,
   BiMap,
-  BiSolidTrafficBarrier,
 } from "react-icons/bi";
 import LangRedirect from "../../components/LangRedirect";
 import { getPageBySlug } from "./utils/get-page-by-slug";
@@ -34,55 +33,72 @@ export default async function RootRoute({
     console.log({ text: page.data[0].attributes });
 
     const contentSections = page.data[0].attributes.contentSections;
+
+    const textHeroSection = {
+      __component: "sections.text-hero",
+      title: "EVOLVE WITH US",
+      data: {
+        title: "VISION",
+        heading: "The future's broken. Let's build a new one",
+        description:
+          "We are a group of technologists, scientists, and policy wonks who are turning Science Fiction into Science Facts. We are building a new kind of government that is more responsive, more transparent, and more accountable to the people and AI. We are a non-partisan, not-for-profit organization dedicated to the public good. Because we're playing the long game.",
+      },
+    };
+    const textContent = `# How we want to change the world?
+
+Infinite game theory suggest that the best way to win is to focus on the game, not the other players.
+Freedom is being attacked from all sides, and we need to fight back.
+
+    `;
     const cookingSection = {
       __component: "sections.cooking",
       title: "WHAT WE’RE COOKING UP?",
       data: [
         {
           id: 1,
-          title: "FUTURE STATE CONGRESS",
-          description:
-            "Bringing science fiction into science facts. Now in Cyprus",
+          title: "CONGRESS",
+          description: `Annual Hitchhiker's Congress
+Now in Cyprus, 2-6 Dec 2024`,
           href: "https://congress.futurestate.tv",
           Icon: BiBuildingHouse,
-          buttonText: "Join nearest physical event",
+          buttonText: "RE:WRITE REALITY",
           newTab: true,
         },
         {
           id: 2,
-          title: "FUTURESTATE.TV MEDIA",
-          description:
-            "Explaining and propagandizing this madness since [2022]",
-          href: "https://lu.ma/FUTURE_STATE",
+          title: "MEDIA",
+          description: "Trying to understand and explain Network State // 2022",
+          href: "https://new.futurestate.tv/en/articles",
           Icon: Tv,
-          buttonText: "Read more",
+          buttonText: "WARNING: DEEP RABBIT HOLE",
         },
         {
           id: 3,
-          title: "HITCHHIKER'S GUIDE TO THE FUTURE/STATE",
-          description: "our fellowship program for nation-building",
+          title: "HITCHHIKER'S GUIDE TO THE FUTURE",
+          description:
+            "12-month Hackathon around the world. A fellowship program for radical ideas—and even more radical implementations. Don't forget your towel!",
           href: "https://congress.futurestate.tv",
           Icon: BiLike,
-          buttonText: "Touch the water with your foot",
+          buttonText: "DON'T PANIC, CLICK HERE",
           newTab: true,
         },
         {
           id: 4,
-          title: "GLOBAL EVENTS",
-          description: "We are building a global network of events. Worldwide",
+          title: "DECENTRALIZED EVENTS",
+          description: "Go to the nearest one or start your chapter",
           href: "https://lu.ma/FUTURE_STATE",
           Icon: BiGlobe,
-          buttonText: "Join us",
+          buttonText: "HACK THE PLANET",
         },
-        {
-          id: 5,
-          title: "VENTURE BUILDER BATCH",
-          description: "cause someone's gotta build this",
-          href: "https://www.bubbleswitch.me",
-          Icon: BiSolidTrafficBarrier,
-          buttonText: "Apply now",
-          newTab: true,
-        },
+        // {
+        //   id: 5,
+        //   title: "VENTURE BUILDER BATCH",
+        //   description: "cause someone's gotta build this",
+        //   href: "https://www.bubbleswitch.me",
+        //   Icon: BiSolidTrafficBarrier,
+        //   buttonText: "Apply now",
+        //   newTab: true,
+        // },
       ],
     };
     const envolveSection = {
@@ -116,22 +132,6 @@ export default async function RootRoute({
         },
       ],
     };
-    const textHeroSection = {
-      __component: "sections.text-hero",
-      title: "EVOLVE WITH US",
-      data: {
-        title: "VISION",
-        heading: "Governments are broken. Let's fix them.  ",
-        description:
-          "We are a group of technologists, scientists, and policy wonks who believe that the way we govern ourselves is broken. We are building a new kind of government that is more responsive, more transparent, and more accountable to the people. We are a non-partisan, non-profit organization that is dedicated to the public good.",
-      },
-    };
-    const textContent = `# How we want to change the world?
-
-Infinite game theory suggest that the best way to win is to focus on the game, not the other players.
-Freedom is being attacked from all sides, and we need to fight back.
-
-    `;
     const libertarianArticle = {
       __component: "sections.rich-text",
       content: `## The Future of Governance: A Libertarian Perspective

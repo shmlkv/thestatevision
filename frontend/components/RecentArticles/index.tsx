@@ -67,7 +67,7 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
   if (isLoading) return <Loader />;
   return (
     <div className="mt-8">
-      <PageHeader heading="Recent Articles" moreLink="/articles" />
+      <PageHeader heading="Recent Writings" moreLink="/articles" />
       <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((article: any) => {
           console.log({ xxx: article });

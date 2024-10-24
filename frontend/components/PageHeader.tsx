@@ -4,12 +4,14 @@ interface PageHeaderProps {
   heading: string;
   text?: string;
   moreLink?: string;
+  moreText?: string;
 }
 
 export default function PageHeader({
   heading,
   text,
   moreLink,
+  moreText = "See more",
 }: PageHeaderProps) {
   return (
     <div className="my-6 w-full text-left flex justify-between">
@@ -23,7 +25,7 @@ export default function PageHeader({
           href="#"
           className="text-purple-400 flex items-center hover:underline font-semibold"
         >
-          See more
+          {moreText}
           <span className="ml-2">
             <ArrowRight width="5" />
           </span>
