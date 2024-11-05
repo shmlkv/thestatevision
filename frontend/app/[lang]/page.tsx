@@ -1,5 +1,7 @@
 "use client";
+import { fontGloock } from "@/components/fonts";
 import RecentArticles from "@/components/RecentArticles";
+import RichText from "@/components/RichText";
 import { Tv } from "lucide-react";
 import {
   BiBookBookmark,
@@ -195,7 +197,7 @@ The path to this libertarian future is not without challenges, but by embracing 
         <hr />
 
         <RecentArticles limit={3} />
-        {/* <hr />
+        <hr />
 
         <div className="max-w-[800px]  justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
           <h1
@@ -204,7 +206,7 @@ The path to this libertarian future is not without challenges, but by embracing 
             Manifesto
           </h1>
           <RichText data={{ body: libertarianArticle.content }} />
-        </div> */}
+        </div>
         <hr />
         {sectionRenderer(envolveSection)}
         <hr />
