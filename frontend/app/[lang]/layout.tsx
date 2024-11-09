@@ -58,6 +58,16 @@ export async function generateMetadata({
     icons: {
       icon: [new URL(url, getStrapiURL())],
     },
+    openGraph: {
+      videos: [
+        {
+          url: "/logo.mp4",
+          width: 1920,
+          height: 1080,
+          type: "video/mp4",
+        },
+      ],
+    },
   };
 }
 
