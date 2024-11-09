@@ -47,6 +47,7 @@ export async function middleware(request: NextRequest) {
       "/favicon.ico",
       "/sitemap.xml",
       "/robots.txt",
+      "/logo.mp4",
       // Your other files in `public`
     ].includes(pathname)
   )

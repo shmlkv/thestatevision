@@ -197,16 +197,27 @@ The path to this libertarian future is not without challenges, but by embracing 
         <hr />
 
         <RecentArticles limit={3} />
-        <hr />
+        <div className="bg-black">
+          <div className="flex justify-center">
+            <video
+              src="../../logo.mp4"
+              autoPlay
+              muted
+              loop
+              className="w-full max-w-[400px] flex justify-center"
+            />
+          </div>
 
-        <div className="max-w-[800px]  justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
-          <h1
-            className={`${fontGloock.className} text-center text-5xl font-bold`}
-          >
-            Manifesto
-          </h1>
-          <RichText data={{ body: libertarianArticle.content }} />
+          <div className="max-w-[800px]  justify-center p-3 mx-auto sm:py-3 lg:py-3 lg:flex-row lg:justify-between">
+            <h1
+              className={`${fontGloock.className} text-center text-5xl font-bold`}
+            >
+              Manifesto
+            </h1>
+            <RichText data={{ body: libertarianArticle.content }} />
+          </div>
         </div>
+
         <hr />
         {sectionRenderer(envolveSection)}
         <hr />
