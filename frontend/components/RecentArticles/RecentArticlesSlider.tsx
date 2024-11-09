@@ -1,4 +1,4 @@
-"use server";
+"use client";
 import { useCallback, useEffect, useState } from "react";
 
 import { formatDate } from "@/app/[lang]/utils/api-helpers";
@@ -16,7 +16,7 @@ interface Meta {
   };
 }
 
-export default async function RecentArticlesSlider() {
+export default function RecentArticlesSlider() {
   const [meta, setMeta] = useState<Meta | undefined>();
   const [data, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
@@ -56,11 +56,6 @@ export default async function RecentArticlesSlider() {
       setLoading(false);
     }
   }, []);
-
-  function loadMorePosts(): void {
-    const nextPosts = meta!.pagination.start + meta!.pagination.limit;
-    fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
-  }
 
   useEffect(() => {
     fetchData(0, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));

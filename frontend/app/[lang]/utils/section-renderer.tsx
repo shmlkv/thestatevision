@@ -7,7 +7,7 @@ import Hero from "../../../components/Hero";
 import Pricing from "../../../components/Pricing";
 import RichText from "../../../components/RichText";
 import Testimonials from "../../../components/Testimonials";
-import Cooking from "../../../components/mainpage/Cooking";
+import Cooking from "@/components/mainpage/Cooking";
 
 export function sectionRenderer(section: any, index?: number) {
   console.log({ section });
@@ -45,7 +45,16 @@ export function sectionRenderer(section: any, index?: number) {
     case "sections.bento-grid":
       return <CustomBentoGrid data={section} key={index} />;
     case "sections.cooking":
-      return <Cooking key={index} data={section.data} title={section.title} />;
+      return (
+        <Cooking
+          key={index}
+          data={section.data.map((item: any) => ({
+            ...item,
+            iconName: item.iconName
+          }))}
+          title={section.title}
+        />
+      );
     default:
       return null;
   }

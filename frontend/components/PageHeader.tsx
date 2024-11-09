@@ -22,7 +22,7 @@ export default function PageHeader({
       {/* see more */}
       {moreLink && (
         <a
-          href="#"
+          href={moreLink}
           className="text-purple-400 flex items-center hover:underline font-semibold"
         >
           {moreText}

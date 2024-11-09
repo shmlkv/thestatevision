@@ -2,21 +2,25 @@
 
 import ArrowRight from "../icons/ArrowRight";
 import ArrowUpRight from "../icons/ArrowUpRight";
-function FeatureCard({
-  Icon,
-  title,
-  description,
-  href,
-  buttonText,
-  newTab,
-}: {
-  Icon: any;
+import IconMapping from "../IconMapping";
+
+interface FeatureCardProps {
+  iconName: string;
   title: string;
   description: string;
   href: string;
   buttonText: string;
   newTab?: boolean;
-}) {
+}
+
+function FeatureCard({
+  iconName,
+  title,
+  description,
+  href,
+  buttonText,
+  newTab,
+}: FeatureCardProps) {
   return (
     <a
       target={newTab ? "_blank" : "_self"}
@@ -29,11 +33,9 @@ function FeatureCard({
           <div className="absolute inset-0 shadow-[inset_0_2px_8px_rgba(255,255,255,0.1)] group-hover:shadow-[inset_0_2px_12px_rgba(255,255,255,0.2)] transition-shadow duration-300 ease-in-out"></div>
         </div>
         <div className="relative z-10">
-          {Icon && (
-            <div className="mb-4 text-4xl text-purple-400 group-hover:text-purple-300 transition-colors duration-300 ease-in-out">
-              <Icon />
-            </div>
-          )}
+          <div className="mb-4 text-4xl text-purple-400 group-hover:text-purple-300 transition-colors duration-300 ease-in-out">
+            <IconMapping iconName={iconName} />
+          </div>
           <h3 className="text-xl font-bold mb-2 text-white group-hover:text-purple-200 transition-colors duration-300 ease-in-out">
             {title}
           </h3>
@@ -49,15 +51,28 @@ function FeatureCard({
     </a>
   );
 }
-export default function Cooking({ data, title }: { data: any; title: string }) {
+
+interface CookingProps {
+  data: Array<{
+    iconName: string;
+    title: string;
+    description: string;
+    href: string;
+    buttonText: string;
+    newTab?: boolean;
+  }>;
+  title: string;
+}
+
+export default function Cooking({ data, title }: CookingProps) {
   return (
     <div className="mt-8">
       {title && <h3 className="text-2xl font-bold mb-4">{title}</h3>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.map((item: any) => (
+        {data.map((item) => (
           <FeatureCard
             key={item.href}
-            Icon={item.Icon}
+            iconName={item.iconName}
             title={item.title}
             description={item.description}
             href={item.href}
