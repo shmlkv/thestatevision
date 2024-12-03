@@ -3,8 +3,10 @@ import { useCallback, useEffect, useState } from "react";
 
 import { formatDate } from "@/app/[lang]/utils/api-helpers";
 import { fetchAPI } from "@/app/[lang]/utils/fetch-api";
+import { getStrapiMedia } from "@/data/utils";
 import Image from "next/image";
 import Link from "next/link";
+import Loader from "../Loader";
 
 interface Meta {
   pagination: {
@@ -14,10 +16,10 @@ interface Meta {
   };
 }
 
-export default function RecentArticles({ limit = 3 }: { limit: number }) {
+export default function RecentArticlesSlider() {
   const [meta, setMeta] = useState<Meta | undefined>();
   const [data, setData] = useState<any>([]);
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
 
   const fetchData = useCallback(async (start: number, limit: number) => {
     setLoading(true);
@@ -55,28 +57,30 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
     }
   }, []);
 
-  function loadMorePosts(): void {
-    const nextPosts = meta!.pagination.start + meta!.pagination.limit;
-    fetchData(nextPosts, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
-  }
-
   useEffect(() => {
-    fetchData(0, Number(limit));
-  }, []);
+    fetchData(0, Number(process.env.NEXT_PUBLIC_PAGE_LIMIT));
+  }, [fetchData]);
 
-  if (isLoading) "";
-  else
-    return (
+  if (isLoading) return <Loader />;
+
+  return (
+    <div>
+      {/* Recent Articles */}
       <div>
-        {/* Recent Articles */}
-        <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {data.map((article: any) => {
-            if (article.attributes.isPublic === false) return null;
-            const imageUrl = article.attributes.cover.data?.attributes.url;
-            const avatarUrl =
-              article.attributes.authorsBio.data?.attributes.avatar.data
-                ?.attributes.url;
+        {data
+          .filter((article: any) => article.attributes.isPublic !== false)
+          .map((article: any) => {
+            const imageUrl = getStrapiMedia(
+              article.attributes.cover.data?.attributes.url,
+            );
+
             const category = article.attributes.category.data?.attributes;
+            const authorsBio = article.attributes.authorsBio.data?.attributes;
+
+            const avatarUrl = getStrapiMedia(
+              authorsBio?.avatar.data.attributes.url,
+            );
+
             return (
               <Link
                 href={`/articles/${category?.slug}/${article.attributes.slug}`}
@@ -111,18 +115,18 @@ export default function RecentArticles({ limit = 3 }: { limit: number }) {
                     <span className="text-xs dark:text-gray-400">
                       {formatDate(article.attributes.publishedAt)}
                     </span>
-                    {/* {authorsBio && (
+                    {authorsBio && (
                       <span className="text-xs dark:text-gray-400">
                         {authorsBio.name}
                       </span>
-                    )} */}
+                    )}
                   </div>
                   <p className="py-4">{article.attributes.description}</p>
                 </div>
               </Link>
             );
           })}
-        </div>
       </div>
-    );
+    </div>
+  );
 }

@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { fetchAPI } from "../../utils/fetch-api";
 
+import PageHeader from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
@@ -70,7 +71,7 @@ export default function Articles() {
 
   return (
     <div>
-      {/* <PageHeader heading="All articles" text="~" /> */}
+      <PageHeader heading="All articles" text="~" />
       <div
         style={
           {
@@ -95,16 +96,16 @@ export default function Articles() {
       <Blog data={data}>
         {meta!.pagination.start + meta!.pagination.limit <
           meta!.pagination.total && (
-          <div className="flex justify-center">
-            <button
-              type="button"
-              className="px-6 py-3 text-sm rounded-lg hover:underline dark:bg-gray-900 dark:text-gray-400"
-              onClick={loadMorePosts}
-            >
-              Load more posts...
-            </button>
-          </div>
-        )}
+            <div className="flex justify-center">
+              <button
+                type="button"
+                className="px-6 py-3 text-sm rounded-lg hover:underline dark:bg-gray-900 dark:text-gray-400"
+                onClick={loadMorePosts}
+              >
+                Load more posts...
+              </button>
+            </div>
+          )}
       </Blog>
     </div>
   );

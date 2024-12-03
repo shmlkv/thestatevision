@@ -35,7 +35,10 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  html.dark,
+  html[data-theme="dark"],
+  :root.dark,
+  :root[data-theme="dark"] {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
 
@@ -90,24 +93,23 @@ body {
 
 /* Headers */
 .rich-text h1 {
-  @apply text-4xl font-bold mb-4 text-violet-400;
-  font-family: var(--font-ibm-plex-sans);
+  @apply text-4xl;
 }
 
 .rich-text h2 {
-  @apply text-3xl font-bold mb-4 text-violet-400;
+  @apply text-3xl;
 }
 
 .rich-text h3 {
-  @apply text-2xl font-bold mb-4 text-violet-400;
+  @apply text-2xl;
 }
 
 .rich-text h4 {
-  @apply text-xl font-bold mb-4 text-violet-400;
+  @apply text-xl;
 }
 
 .rich-text h5 {
-  @apply text-lg font-bold mb-4 text-violet-400;
+  @apply text-lg;
 }
 
 .rich-text h6 {
@@ -124,8 +126,20 @@ body {
 }
 
 /* Typographic replacements */
-.rich-text p {
+.rich-text h1,
+.rich-text h2,
+.rich-text h3,
+.rich-text h4,
+.rich-text h5,
+.rich-text h6 {
+  @apply mt-6;
   @apply mb-4;
+  font-family: "Gloock", serif;
+
+  @apply font-bold mb-4 text-violet-400;
+}
+.rich-text p {
+  @apply mt-4;
 }
 
 /* Emphasis */
@@ -209,4 +223,24 @@ body {
 
 .react-slideshow-container [aria-label="Next Slide"] {
   margin-right: 1rem;
+}
+
+.mainpage hr {
+  border-top: 1px solid rgb(167 139 250 0.3);
+}
+.dark .mainpage hr {
+  border-top: 1px solid rgba(139, 92, 246, 0.22);
+}
+.rich-text hr {
+  border-top: 1px solid rgb(167 139 250 0.3);
+}
+.dark .rich-text hr {
+  border-top: 1px solid rgba(139, 92, 246, 0.22);
+}
+
+.purple-border {
+  border-color: rgb(167 139 250 0.3);
+}
+.dark .purple-border {
+  border-color: rgba(139, 92, 246, 0.22);
 }

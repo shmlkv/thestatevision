@@ -1,7 +1,6 @@
-"use client";
 import LangRedirect from "../../components/LangRedirect";
+import HomePageClient from "./HomePageClient";
 import { getPageBySlug } from "./utils/get-page-by-slug";
-import { sectionRenderer } from "./utils/section-renderer";
 
 export default async function RootRoute({
   params,
@@ -18,19 +17,26 @@ export default async function RootRoute({
     if (page.data.length == 0 && params.lang !== "en") return <LangRedirect />;
     if (page.data.length === 0) return null;
 
-    const contentSections = page.data[0].attributes.contentSections;
-    console.log({ text: page.data[0].attributes });
+    const {
+      textHeroSection,
+      cookingSection,
+      envolveSection,
+      libertarianArticle,
+      email,
+    } = await import("./config/homepage-sections");
 
     return (
-      <>
-        {contentSections.map((section: any, index: number) =>
-          sectionRenderer(section, index),
-        )}
-        {/* <Profile /> */}
-      </>
+      <HomePageClient
+        pageData={page.data[0]}
+        textHeroSection={textHeroSection}
+        cookingSection={cookingSection}
+        envolveSection={envolveSection}
+        libertarianArticle={libertarianArticle}
+        email={email}
+      />
     );
   } catch (error: any) {
     console.log({ error });
-    return null; // Ensure to return null or some fallback UI in case of an error
+    return null;
   }
 }

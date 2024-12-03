@@ -21,8 +21,8 @@ interface Article {
 
 function selectedFilter(current: string, selected: string) {
   return current === selected
-    ? "px-3 py-1 mr-2 rounded-lg hover:underline dark:bg-violet-700 dark:text-gray-100"
-    : "px-3 py-1 mr-2 rounded-lg hover:underline dark:bg-violet-400 dark:text-gray-900";
+    ? "px-3 py-1 mr-2 rounded-lg hover:underline dark:bg-violet-700 dark:text-gray-100 bg-violet-400 text-gray-900"
+    : "px-3 py-1 mr-2 rounded-lg hover:underline dark:bg-violet-400 dark:text-gray-900 bg-gray-200 text-gray-900";
 }
 
 export default function ArticleAbout({
@@ -51,7 +51,7 @@ export default function ArticleAbout({
       <h4 className="text-xl font-semibold">Сategories</h4>
 
       <div>
-        <div className="flex flex-wrap items-end py-2 space-y-2 dark:border-gray-400 ">
+        <div className="flex flex-wrap items-center py-2 space-y-2 dark:border-gray-400  ">
           <Link
             href={`/articles/${params.category}`}
             className={selectedFilter("", params.category)}
@@ -109,9 +109,9 @@ export default function ArticleAbout({
       </div>
 
       {!!author && (
-        <div>
+        <div className="mt-6">
           <h4 className="text-xl font-semibold">Author</h4>
-          <div className="flex items-top space-x-2 py-2">
+          <div className="flex items-center space-x-2 py-2">
             <img
               src={author.avatar.data.attributes.url}
               alt={author.name}

@@ -1,3 +1,4 @@
+import { fontGloock } from "@/components/fonts";
 import { getStrapiMedia } from "../utils/api-helpers";
 import { postRenderer } from "../utils/post-renderer";
 
@@ -56,7 +57,11 @@ export default function Post({ data }: { data: Article }) {
             </div>
           )}
           <div className="space-y-6">
-            <h1 className="leading-tight text-5xl font-extrabold">{title}</h1>
+            <h1
+              className={`${fontGloock.className} leading-tight text-5xl font-extrabold`}
+            >
+              {title}
+            </h1>
           </div>
 
           <div className="dark:text-gray-100 font-extralight  text-3xl font-italic py-6">

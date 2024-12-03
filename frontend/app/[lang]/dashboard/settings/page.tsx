@@ -7,6 +7,7 @@ export default async function AccountRoute() {
     window?.matchMedia?.("(prefers-color-scheme:dark)")?.matches
       ? "dark"
       : "light";
+  console.log({ getPreferredScheme: getPreferredScheme() });
   useEffect(() => {
     console.log({ getPreferredScheme: getPreferredScheme() });
     setTheme(getPreferredScheme());

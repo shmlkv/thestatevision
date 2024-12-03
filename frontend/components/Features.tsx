@@ -52,7 +52,7 @@ function Feature({ title, description, showLink, newTab, url, text }: Feature) {
   );
 }
 
-export default function Features({ data }: FeaturesProps) {
+export default function Features({ data }: any) {
   return (
     <section className=" z-10 dark:bg-black dark:text-gray-100 m:py-12 lg:py-24">
       <div className="container mx-auto py-4 space-y-2 text-center">
@@ -60,7 +60,7 @@ export default function Features({ data }: FeaturesProps) {
         <p className="dark:text-gray-400">{data.description}</p>
       </div>
       <div className="container mx-auto my-6 grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {data.feature.map((feature: Feature, index: number) => (
+        {data.map((feature: Feature, index: number) => (
           <Feature key={index} {...feature} />
         ))}
       </div>

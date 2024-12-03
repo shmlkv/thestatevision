@@ -75,14 +75,35 @@ class p {
   constructor() {
     (this.curveY = Math.random()), (this.position = Math.random());
     const t = 0.5,
+
       e = 1.7;
     (this.radius = Math.random() * (e - t) + t),
       (this.opacity = Math.min(1, Math.max(Math.random(), 0.3))),
       (this.speed = Math.min(0.1, Math.random()));
-    this.isDarkMode =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    this.isDarkMode = this.checkDarkMode();
+    this.setupDarkModeObserver();
   }
+
+  checkDarkMode() {
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const htmlElement = document.documentElement;
+    const colorScheme = getComputedStyle(htmlElement).getPropertyValue('color-scheme').trim();
+    return prefersDark || colorScheme === 'dark';
+  }
+
+  setupDarkModeObserver() {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQuery.addListener(this.updateDarkMode);
+
+    const htmlElement = document.documentElement;
+    const observer = new MutationObserver(this.updateDarkMode);
+    observer.observe(htmlElement, { attributes: true, attributeFilter: ['style'] });
+  }
+
+  updateDarkMode = () => {
+    this.isDarkMode = this.checkDarkMode();
+  }
+
   render(t, e, n) {
     const i = this.curveY * n,
       o = 0,
