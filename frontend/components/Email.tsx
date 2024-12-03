@@ -1,4 +1,4 @@
-import { Input } from "@/components/ui/input";
+// import { Input } from "@/components/ui/input";
 import { FC } from "react";
 import { fontGloock } from "./fonts";
 
@@ -36,7 +36,7 @@ const Email: FC<{ data: EmailProps }> = ({ data }) => {
             (but you're not laughing)
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="w-full space-y-4">
+        {/* <form onSubmit={handleSubmit} className="w-full space-y-4">
           <Input
             type="email"
             placeholder={data.emailPlaceholder}
@@ -63,7 +63,7 @@ const Email: FC<{ data: EmailProps }> = ({ data }) => {
               />
             </svg>
           </button>
-        </form>
+        </form> */}
       </div>
       {/* </div> */}
     </section>
