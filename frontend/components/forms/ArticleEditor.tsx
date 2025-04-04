@@ -89,7 +89,7 @@ export default function ArticleSubmit({ user }: any) {
         title: "✅ Success",
         description: "Resource submitted successfully.",
       });
-      const messageTextMarkdown = `*New article submited*\n\n${title}\n\n${description}\n\n[View article](https://futurestate.tv/en${articleURL})`;
+      const messageTextMarkdown = `*New article submited*\n\n${title}\n\n${description}\n\n[View article](${process.env.NEXT_PUBLIC_URL}/en${articleURL})`;
       tgNotification(messageTextMarkdown);
       router.push(articleURL);
     });

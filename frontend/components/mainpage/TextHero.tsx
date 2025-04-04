@@ -29,7 +29,7 @@ export default function TextHero({
           <p className="text-lg mt-6">{description}</p>
         </div>
 
-        <img src="https://new.futurestate.tv/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdqtai7zpm%2Fimage%2Fupload%2Fv1724429388%2Ffuture_state_2846f40eac.png&w=1200&q=75" />
+        <img src={`${process.env.NEXT_PUBLIC_URL}/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdqtai7zpm%2Fimage%2Fupload%2Fv1724429388%2Ffuture_state_2846f40eac.png&w=1200&q=75`} />
       </div>
     </div>
   );
